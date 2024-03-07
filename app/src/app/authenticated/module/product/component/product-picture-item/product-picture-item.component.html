@@ -1,0 +1,12 @@
+<ng-container *ngIf="image.isEmpty;else img">
+    <div class="chooser" (click)="addPicture()">
+        <i class="fa-solid fa-plus"></i>
+    </div>
+</ng-container>
+<ng-template #img>
+    <div class="wrapper"(click)="delete()" >
+        <img [src]="image.content" alt="">
+        <div class="delete-cursor"><i class="fa-solid fa-trash"></i></div>
+    </div>
+</ng-template>
+<app-product-picture-chooser [(show)]="showCropper" [picture]="image"></app-product-picture-chooser>

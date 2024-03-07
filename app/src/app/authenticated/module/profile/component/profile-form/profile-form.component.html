@@ -1,0 +1,59 @@
+<app-data-viewer-loader [loading]="loading$" [detail]="detail$" [formMode]="formMode">
+    <app-card>
+        <div class="card-title">
+            <i class="fa-solid fa-id-card"></i>
+            {{'page.profile-detail.title.identity' | translate}}
+        </div>
+        <div class="content" *ngIf="detailFormConfig">
+            <div class="line">
+                <app-input-detail [config]="detailFormConfig.firstname"></app-input-detail>
+                <app-input-detail [config]="detailFormConfig.lastname"></app-input-detail>
+                <app-input-detail [config]="detailFormConfig.gender"></app-input-detail>
+            </div>
+            <div class="line">
+                <app-input-detail [config]="detailFormConfig.email"></app-input-detail>
+                <app-input-detail [config]="detailFormConfig.phone"></app-input-detail>
+                <div class="button-area">
+                    <ng-container *ngIf="needToSave$ | async; else noNeed">
+                        <span class="clickable primary-btn" (click)="save()"><i
+                                class="fa-regular fa-floppy-disk"></i></span>
+                    </ng-container>
+                    <ng-template #noNeed>
+                        <span class="un-clickable"><i class="fa-regular fa-floppy-disk"
+                                                      [tooltip]="{label:'common.no-change-to-save'}"></i></span>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </app-card>
+    <ng-container *ngIf="detail$ | async as detail">
+        <ng-container *ngIf="detailFormConfig">
+            <app-address-detail *ngFor="let address of detailFormConfig.address" [address]="address.address"
+                                [formConfig]="address"></app-address-detail>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="orders$ | async as orders">
+        <app-card>
+            <div class="card-title">
+                <i class="fa-solid fa-clipboard-list"></i>
+                {{'page.profile-detail.title.order' | translate}}
+            </div>
+            <p *ngIf="orders.length === 0">Aucune commande pour ce compte</p>
+            <table *ngIf="orders.length >0">
+                    <tr class="title">
+                        <td class="reference"> {{'page.order.column.reference' |translate}}</td>
+                        <td class="profile"> {{'page.order.column.profile' |translate}}</td>
+                        <td class="products"> {{'page.order.column.products' |translate}}</td>
+                        <td class="status"> {{'page.order.column.status' |translate}}</td>
+                    </tr>
+
+                    <tr class="line" *ngFor="let item of orders" (click)="go(item.id)">
+                        <td class="reference"> {{item.reference}}</td>
+                        <td class="ellipsis"> {{item.profile.str}}</td>
+                        <td class="products">  {{item.str}}</td>
+                        <td class="status">  {{'page.order.status.' + item.status |translate}}</td>
+                    </tr>
+                </table>
+        </app-card>
+    </ng-container>
+</app-data-viewer-loader>

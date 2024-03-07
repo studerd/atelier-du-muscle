@@ -1,0 +1,1 @@
+export * from './link-part/link-part.component';

@@ -1,0 +1,32 @@
+<div class="side-part">
+    <div class="search">
+        <i class="fa-regular fa-magnifying-glass"></i>
+        <input type="text" [placeholder]="config.translateKey + 'search-placeholder' | translate"/>
+    </div>
+    <ng-container *ngIf="config.dataService.list$ |async as list">
+        <ng-container *ngIf="list.length > 0;else noData">
+            <div class="list" *ngFor="let item of list">
+                <div class="item" (click)="detail(item)">{{item.str}}</div>
+            </div>
+        </ng-container>
+    </ng-container>
+    <ng-template #noData>
+        <div class="item" (click)="create()">{{config.translateKey + 'no-data' | translate}}</div>
+    </ng-template>
+</div>
+<section class="main">
+    <div class="header">
+        <div class="title">
+            <ng-container *ngIf="config.navigation.title$ | async as label">
+                {{label.label |translate:label.params}}
+            </ng-container>
+        </div>
+        <div class="actions" *ngIf="config.navigation.actions$ | async as actions">
+            <span class="clickable {{action.css}}" *ngFor="let action of actions" [tooltip]="action.label"
+                  [position]="tooltipPosition.LEFT" (click)="action.callback(action.data)">
+                <i class="{{action.icon}}"></i>
+            </span>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</section>

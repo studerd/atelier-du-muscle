@@ -1,0 +1,3 @@
+<ng-container *ngIf="productService.list$ | async as list">
+  <app-product-shop *ngFor="let product of list" [product]="product"></app-product-shop>
+</ng-container>

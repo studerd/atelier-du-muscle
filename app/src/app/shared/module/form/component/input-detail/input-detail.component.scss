@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  label {
+    font-family: "FigtreeSemiBold";
+    font-size: 14px;
+  }
+
+  input {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    color: var(--theme--input-text);
+
+    &::placeholder {
+      color: var(--theme--input-text);
+    }
+
+    &:hover {
+      background: var(--theme-standard-bg-hover)
+    }
+  }
+}
+

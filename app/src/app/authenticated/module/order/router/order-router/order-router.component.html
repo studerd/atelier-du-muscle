@@ -1,0 +1,16 @@
+<section class="main">
+    <div class="header">
+        <div class="title">
+            Commandes
+        </div>
+        <div class="actions">
+            <span class="clickable {{action.css}}" *ngFor="let action of actions" [tooltip]="action.label"
+                  [position]="tooltipPosition.LEFT" (click)="action.callback(action.data)">
+                <i class="{{action.icon}}"></i>
+            </span>
+        </div>
+    </div>
+    <section id="content">
+        <router-outlet></router-outlet>
+    </section>
+</section>

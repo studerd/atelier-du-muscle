@@ -1,0 +1,18 @@
+<ng-container *ngIf="loading | async ;else content">
+    <div class="loading-wrapper">
+        <div class="loading"><i class="fas fa-spinner fa-spin"></i> {{loadingText | translate}}</div>
+    </div>
+</ng-container>
+<ng-template #content>
+
+    <ng-container *ngIf="detail | async as d">
+        <ng-container *ngIf="!d.isEmpty || formMode === type.CREATE;else noData">
+            <ng-content></ng-content>
+        </ng-container>
+        <ng-template #noData>
+            <div class="loading-wrapper">
+                <div class="loading"><i class="fa-regular fa-robot"></i> {{noDataText | translate}}</div>
+            </div>
+        </ng-template>
+    </ng-container>
+</ng-template>

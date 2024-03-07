@@ -1,0 +1,26 @@
+   <div id="wrapper" *ngIf="!(loading$| async)">
+    <div class="form">
+        <div class="title">{{'page.signin.title'|translate}} <span
+                class="clean">{{'page.signin.sub-title' | translate}}</span></div>
+        <div class="form-area" [formGroup]="formGroup">
+            <input autocomplete="false" name="hidden" type="text" style="display:none;">
+            <div class="top-area area">
+                <input class="floating-input" type="text" placeholder=" " (focus)="userNameFocus=true"
+                       (blur)="userNameFocus=false" formControlName="username" autocomplete="new-password">
+                <label class="floating-label"
+                       [class.fixed-label]="userNameFocus || payload.username.length >0">{{'page.signin.label.username' | translate}}</label>
+            </div>
+            <div class="bottom-area area">
+                <input class="floating-input" type="password" (focus)="passwordFocus=true"
+                       (blur)="passwordFocus=false"
+                       formControlName="password" autocomplete="new-password">
+                <div class="icon" (click)="signin()">
+                    <i class="fa-solid fa-unlock"></i>
+                </div>
+                <label class="floating-label"
+                       [class.fixed-label]="passwordFocus|| payload.password.length >0">{{'page.signin.label.password' | translate}}</label>
+            </div>
+        </div>
+        <app-link-part [page]="pageEnum.SIGNIN"></app-link-part>
+    </div>
+</div>

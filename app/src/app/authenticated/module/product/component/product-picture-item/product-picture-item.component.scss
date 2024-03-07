@@ -1,0 +1,50 @@
+:host {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.wrapper {
+  position: relative;
+
+  &:hover {
+    .delete-cursor {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .delete-cursor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    right: 50%;
+    background: rgba(240, 240, 240, 0.8);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--theme-primary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+}
+
+.chooser {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  cursor: pointer;
+}

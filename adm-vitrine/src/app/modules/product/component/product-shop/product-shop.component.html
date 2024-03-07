@@ -1,0 +1,73 @@
+<div class="top-wrapper">
+  <div class="picture-area">
+    <div class="cover" *ngIf="product.pictures.length >0">
+      <img [src]="currentPicture" alt=""/>
+    </div>
+    <div class="little-gallery" *ngIf="product.pictures.length>1">
+      <div class="picture">
+        <img [src]="product.pictures[0].content" (click)="setCurrentPicture(product.pictures[0].content)" alt=""/>
+      </div>
+      <div class="picture">
+        <img *ngIf="product.pictures.length >1" [src]="product.pictures[1].content" alt=""
+             (click)="setCurrentPicture(product.pictures[1].content)"/>
+      </div>
+      <div class="picture">
+        <img *ngIf="product.pictures.length >2" [src]="product.pictures[2].content" alt=""
+             (click)="setCurrentPicture(product.pictures[2].content)"/>
+      </div>
+      <div class="picture">
+        <img *ngIf="product.pictures.length >3" [src]="product.pictures[3].content" alt=""
+             (click)="setCurrentPicture(product.pictures[3].content)"/>
+      </div>
+      <div class="picture">
+        <img *ngIf="product.pictures.length >4" [src]="product.pictures[4].content" alt=""
+             (click)="setCurrentPicture(product.pictures[4].content)"/>
+      </div>
+    </div>
+  </div>
+  <div class="little-description">
+    <div class="title">{{product.title}}
+      <div class="availability">{{product.delays}}  </div>
+    </div>
+    <div class="descy">
+      <div class="bullets">
+        <div class="line" *ngFor="let item of bulletPoints;let index=index">
+          <div class="bullet"><span></span></div>
+          <div class="desc">{{item}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="options">
+      <div class="title">{{'page.profile-detail.placeholder.options'  | translate}} </div>
+      <span *ngIf="!canAdd">Vous devez selectionner une option avant de pouvoir l'ajouter au pannier</span>
+      <div class="option" *ngFor="let option of options">
+        <div class="little-title">{{option.title}}</div>
+        <div class="listing-option">
+          <div class="option-value" *ngFor="let value of option.options;let index = index"
+               [class.selected]="value.selected" (click)="select(option,value)">
+            {{value.description}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="bucket">
+      <div class="price">
+        <div class="title">{{'page.profile-detail.placeholder.total-price'| translate}}</div>
+      </div>
+      <div class="row">
+        <div class="total-price">
+          {{totalPrice}}</div>
+        <div class="qty">
+          <div class="btn-count" (click)="minus()"><i class="fa-sharp fa-solid fa-minus"></i></div>
+          <div class="count">{{count}}</div>
+          <div class="btn-count" (click)="add()"><i class="fa-sharp fa-solid fa-plus"></i></div>
+        </div>
+        <div class="btn">
+          <button  class="primary" (click)="addBucket()" *ngIf="canAdd" >{{'page.profile-detail.placeholder.buy' | translate}}</button>
+          <button (click)="goDetail()">{{'page.profile-detail.placeholder.detail' | translate}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

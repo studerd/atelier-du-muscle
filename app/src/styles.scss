@@ -1,0 +1,177 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/css/reset.css';
+@import 'assets/fontawesome/css/all.css';
+
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/font/Figtree.ttf');
+}
+
+@font-face {
+  font-family: 'Figtree-Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/font/Figtree-Light.ttf');
+}
+
+@font-face {
+  font-family: 'FigtreeSemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/font/Figtree-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/font/OpenSans.ttf');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/font/Oswald.ttf');
+}
+
+body {
+  --theme-primary: #3996d2;
+  --theme-primary-middle: #63b3e2;
+  --theme-blue-dark: #344E5C;
+  --theme-blue-darker: #304556;
+  --theme-blue-clear: #3A5966;
+  --theme-pink: #ed576b;
+  --theme-dark-clear: #d2d2d7;
+  --theme-black: #252525;
+  // Standard theme
+  --theme-standard-bg: #f5f5f7;
+  --theme-search-bg: #f8f8fc;
+  --theme-standard-bg-hover: #fafafa;
+  --theme-standard-footer-bg: #F5F5F5;
+  --theme-white: #FFFFFF;
+  --theme-eee: #eeeeee;
+  --theme-aaa: #aaaaaa;
+  --theme-ccc: #cccccc;
+  --theme-standard-write: #5b5e66;
+  --theme-standard-grey-1: #bdc3c7;
+  --theme-dark-bg-pan: #475c7A;
+  --theme-label-text: #86868b;
+  --theme--input-text: #494949;
+  //error color
+  --theme-error-clear: #F76D82;
+  --theme-error-middle: #EC5564;
+  --theme-error-dark: #D94452;
+
+  //success color
+  --theme-success-clear: #62DDBD;
+  --theme-success-middle: #46CEAD;
+  --theme-success-dark: #35BB9B;
+
+  //warning color
+  --theme-warning-clear: #FCD277;
+  --theme-warning-middle: #FECD57;
+  --theme-warning-dark: #F5BA45;
+
+  //info color
+  --theme-info-clear: #73B1F4;
+  --theme-info-middle: #5E9CEA;
+  --theme-info-dark: #4B89DA;
+
+  --var-header-height: 60px;
+  --var-side-menu-full-open: 250px;
+  --var-side-menu--minimal: 60px;
+
+  --transition-smooth: all ease .3s;
+}
+
+body {
+  font-family: 'Figtree-Light' !important;
+  background: var(--theme-white);
+  color: var(--theme-dark-bg-pan);
+}
+.crd-little-title{
+  font-family: "Figtree-Light";
+  text-transform: uppercase;
+  font-size:13px;
+  color: var(--theme-dark-bg-pan);
+  height: 25px;
+  display: flex;
+  gap: 3px;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top:-10px;
+  margin-bottom: 15px;
+}
+.card-title {
+  font-family: "FigtreeSemiBold";
+  text-transform: uppercase;
+  color: var(--theme-dark-bg-pan);
+  height: 25px;
+  display: flex;
+  gap: 3px;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+
+  i {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #6e6e73
+  }
+
+  .selector {
+    color: var(--theme-primary);
+    font-size: 12px;
+    border: 1px solid var(--theme-primary);
+    width:280px;
+    .current {
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        flex: 2
+      }
+
+      i {
+        color: var(--theme-primary);
+        height: 20px;
+      }
+    }
+  }
+}
+
+.primary-btn {
+  &:hover {
+    background: var(--theme-primary);
+    color: var(--theme-white);
+  }
+}
+
+.primary-light-btn {
+  &:hover {
+    color: var(--theme-primary);
+  }
+}
+
+.delete-btn {
+  &:hover {
+    background: var(--theme-error-dark);
+    color: var(--theme-white);
+  }
+}
+
+.clickable {
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}

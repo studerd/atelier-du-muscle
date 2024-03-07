@@ -1,0 +1,96 @@
+.toast {
+  animation: move .3s both;
+  font-family: 'Figtree-Light' !important;
+
+  padding: 10px 10px 10px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  cursor: pointer;
+}
+
+@keyframes move {
+  from {
+    bottom: 30px;
+    right: -110%;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    right: 30px;
+    opacity: 1;
+  }
+}
+
+.icon {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-size: 14px;
+  flex: 2;
+}
+
+.toast-success {
+  background: var(--theme-success-dark);
+  color: var(--theme-white);
+  transition: all .3s ease;
+
+  &:hover {
+    background: var(--theme-success-middle);
+  }
+
+}
+
+.toast-error {
+  background: var(--theme-error-dark);
+  color: var(--theme-white);
+  transition: all .3s ease;
+
+  &:hover {
+    background: var(--theme-error-middle);
+  }
+}
+
+.toast-info {
+  background: var(--theme-info-dark);
+  color: var(--theme-white);
+  transition: all .3s ease;
+
+  &:hover {
+    background: var(--theme-info-middle);
+  }
+}
+
+.toast-warning {
+  background: var(--theme-warning-dark);
+  color: var(--theme-white);
+  transition: all .3s ease;
+
+  &:hover {
+    background: var(--theme-warning-middle);
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  cursor: pointer;
+  padding-left: 1rem;
+}

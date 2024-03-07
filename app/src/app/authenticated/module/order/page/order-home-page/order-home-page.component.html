@@ -1,0 +1,36 @@
+<app-card>
+    <div class="card-title">
+        {{'page.order.title' | translate}}
+        <div class="selector">
+            <div class="current" (click)="showStatusOption=true">
+                <span >{{'page.order.status.' + currentStatus |translate}}</span>
+                <i class="fa-sharp fa-solid fa-chevron-down"></i></div>
+            <div class="options" [class.hide]="!showStatusOption">
+                <div class="option" (click)="chooseStatus(status)" *ngFor="let status of statusArr">{{'page.order.status.' + status | translate}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="content" *ngIf="orderService.list$ | async as list">
+        <table>
+            <tr class="title">
+                <td class="reference"> {{'page.order.column.reference' |translate}}</td>
+                <td class="profile"> {{'page.order.column.profile' |translate}}</td>
+                <td class="products"> {{'page.order.column.products' |translate}}</td>
+                <td class="status"> {{'page.order.column.status' |translate}}</td>
+                <td class="time"> {{'page.order.column.encoded' |translate}}</td>
+                <td class="time"> {{'page.order.column.start-product' |translate}}</td>
+                <td class="time"> {{'page.order.column.estimated-products' |translate}}</td>
+            </tr>
+
+            <tr class="line" *ngFor="let item of list" (click)="go(item.id)">
+                <td class="reference"> {{item.reference}}</td>
+                <td class="ellipsis"> {{item.profile.str}}</td>
+                <td class="products">  {{item.str}}</td>
+                <td class="status">  {{'page.order.status.' + item.status |translate}}</td>
+                <td class="time">  {{item.encoded}}</td>
+                <td class="time">  {{(item.status === 'IN_PRODUCTION')? item.startProduction: '-'}}</td>
+                <td class="time">  {{(item.status === 'IN_PRODUCTION')? item.estimatedTimeToDeliver: '-'}}</td>
+            </tr>
+        </table>
+    </div>
+</app-card>

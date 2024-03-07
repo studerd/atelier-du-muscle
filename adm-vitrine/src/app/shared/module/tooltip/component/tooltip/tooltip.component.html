@@ -1,0 +1,10 @@
+<div class="tooltip"
+     [ngClass]="['tooltip--'+position, 'tooltip--'+theme]"
+     [class.tooltip--visible]="visible"
+     [style.left]="left + 'px'"
+     [style.top]="top + 'px'">
+    <div class="content">
+        {{tooltip.label |translate:tooltip.params}}
+    </div>
+
+</div>

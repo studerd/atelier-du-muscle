@@ -1,0 +1,80 @@
+<ng-container *ngIf="detail$ | async as detail">
+    <ng-container *ngIf="detail.isEmpty;else data">
+        <div class="loading-wrapper">
+            <div class="loading"><i class="fa-regular fa-robot"></i> {{'page.order.no-data' | translate}}</div>
+        </div>
+    </ng-container>
+    <ng-template #data>
+        <app-card>
+            <div class="card-title">
+                {{'page.order.title-detail' | translate: detail}}
+            </div>
+            <div class="content">
+                <ng-container *ngFor="let status of statusArr">
+                    <div class="choose" *ngIf="detail.status !== orderStatus.ALL" [class.choosed]="detail.status === status" (click)="setStatus(status)">
+                        {{'page.order.status.' + status |translate}}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="btn-area">
+                <input *ngIf="detail.status === orderStatus.IN_DELIVERY" type="text" [placeholder]="'page.order.trackURL' |translate" [(ngModel)]="trackingURL" />
+                <button (click)="changeStatus()">{{'page.order.btn-change-status' | translate}}</button>
+            </div>
+        </app-card>
+        <app-card>
+            <div class="card-title">
+                {{'page.order.title-detail-2' | translate: detail}}
+            </div>
+            <div class="line" *ngFor="let line of detail.lines;let index=index">
+                <div class="description">
+                    <div class="product">{{line.qty}} {{line.str.split('(')[0]}}</div>
+                    <ng-container *ngIf="line.options.length >0; else noOption">
+                        <div class="option-line" *ngFor="let opt of line.options">
+                            {{line.str.split('(')[1].replace(')', '')}} {{opt.str}}
+                        </div>                    </ng-container>
+                    <ng-template #noOption>{{'page.order.no-option' | translate}}</ng-template>
+                </div>
+                <div class="price">{{line.totalPrice}}</div>
+            </div>
+            <div class="line nobt smaller">
+                <div class="total">{{'page.order.total-price' | translate}}</div>
+                <div class="price">{{totalPrice + '€'}}</div>
+            </div>
+            <div class="line nobt smaller">
+                <div class="total">{{'page.order.vat-price' | translate}}</div>
+                <div class="price">{{reductionTva + '€'}}</div>
+            </div>
+            <div class="line nobt smaller">
+                <div class="total">{{'page.order.cost-travel' | translate}}</div>
+                <div class="price">{{estimatedCost + '€'}}</div>
+            </div>
+            <div class="line nobt">
+                <div class="total">{{'page.order.ttc' | translate}}</div>
+                <div class="price">{{(totalPrice + estimatedCost - reductionTva) + '€'}}</div>
+            </div>
+        </app-card>
+        <app-card *ngIf="!detail.billingAddress.isEmpty">
+            <div class="card-title">
+                {{'page.order.title-detail-3' | translate: detail}}
+            </div>
+            <div class="line column">
+                <div class="little-title">{{'page.order.da' | translate}}</div>
+                <div class="content">{{detail.delivryAddress.str}}</div>
+            </div>
+            <div class="line column nobt">
+                <div class="little-title">{{'page.order.ba' | translate}}</div>
+                <div class="content">{{detail.billingAddress.str}}</div>
+            </div>
+        </app-card>
+        <app-card *ngIf="!detail.profile.isEmpty">
+        <div class="card-title">
+            {{'page.order.column.profile' | translate: detail}}
+        </div>
+        <div class="line column">
+            {{detail.profile.firstname }} {{detail.profile.lastname }} <br />
+            {{detail.profile.email }} <br />
+            {{detail.profile.phone }} <br />
+        </div>
+    </app-card>
+    </ng-template>
+</ng-container>

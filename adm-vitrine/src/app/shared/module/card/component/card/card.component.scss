@@ -1,0 +1,21 @@
+.card {
+  background: var(--theme-white);
+  border: 1px solid var(--theme-dark-clear);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+.default {
+  margin: 1.5rem auto;
+  max-width: 1024px;
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    border: none;
+  }.default {
+     margin: 0;
+     width:100%;
+   }
+}

@@ -1,0 +1,46 @@
+<div class="btn">
+    <button
+            printSectionId="pdfTable"
+            printTitle="Production"
+            ngxPrint
+            [useExistingCss]="true"
+    >
+        <i class="fa fa-regular fa-file-pdf"></i>
+    </button>
+</div>
+<div id="pdfTable">
+    <ng-container *ngIf="productions$ | async as productions">
+
+
+        <app-card *ngFor="let order of orders">
+            <div class="card-title"> {{order.bigStr}} </div>
+            <div class="crd-little-title"> {{order.littleStr}} </div>
+            <div class="crd-little-title">{{'page.order.column.date-start-production' |translate:order}} {{'page.order.column.end-start-production' | translate:order}}</div>
+            <table>
+                <thead>
+                <td>{{'page.order.qty' | translate}}</td>
+                <td>{{'page.order.product' | translate}}</td>
+                <td>{{'Option(s)' | translate}}</td>
+                </thead>
+                <tr *ngFor="let line of order.lines">
+                    <td>{{line.qty}}</td>
+                    <td>{{line.product.str}}</td>
+                    <td><span *ngFor="let option of line.options"> {{option.title}} {{option.str}} </span></td>
+                </tr>
+            </table>
+        </app-card>
+        <app-card>
+            <div class="card-title"> En résumé</div>
+            <table>
+                <tr class="title">
+                    <td>{{'page.order.qty' | translate}}</td>
+                    <td>{{'page.order.product' | translate}}</td>
+                </tr>
+                <tr *ngFor="let product of productions">
+                    <td>{{product.qty}}</td>
+                    <td>{{product.product}}</td>
+                </tr>
+            </table>
+        </app-card>
+    </ng-container>
+</div>

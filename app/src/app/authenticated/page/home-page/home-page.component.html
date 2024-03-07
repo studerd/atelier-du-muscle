@@ -1,0 +1,3 @@
+<ng-container *ngIf="authService.account$ | async as account">
+    {{account | json}}
+</ng-container>

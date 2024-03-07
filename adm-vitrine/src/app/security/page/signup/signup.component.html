@@ -1,0 +1,33 @@
+<div id="wrapper" *ngIf="!(loading$| async); else loading">
+    <div class="form">
+        <div class="title">{{'page.signup.title'|translate}} <span
+                class="clean">{{'page.signup.sub-title' | translate}}</span></div>
+        <div class="form-area" [formGroup]="formGroup">
+            <div class="top-area area">
+                <input class="floating-input" type="text" placeholder=" " (focus)="userNameFocus=true"
+                       (blur)="userNameFocus=false" formControlName="username" autocomplete="new-password">
+                <label class="floating-label"
+                       [class.fixed-label]="userNameFocus || payload.username.length >0">{{'page.signup.label.username' | translate}}</label>
+            </div>
+            <div class="bottom-area area">
+                <input class="floating-input" [type]="passwordType" (focus)="passwordFocus=true"
+                       (blur)="passwordFocus=false"
+                       formControlName="password" autocomplete="new-password">
+              <div class="icon" (click)="signup()">
+                <i class="fa-solid fa-user-plus"></i>
+              </div>
+                <label class="floating-label"
+                       [class.fixed-label]="passwordFocus|| payload.password.length >0">{{'page.signup.label.password' | translate}}</label>
+            </div>
+        </div>
+        <app-link-part [page]="pageEnum.SIGNUP"></app-link-part>
+    </div>
+</div>
+<ng-template #loading>
+  <div class="main-wrapper">
+    <div class="no-fill">
+      <i class="fa-sharp fa-light fa-user fa-fade"></i>
+      <p>{{'page.signup.loading'| translate}}</p>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,211 @@
+{
+  "menu": {
+    "profile": "Client",
+    "product": "Produit",
+    "order": "Commande"
+  },
+  "common": {
+    "no-data-view-list-config": "Aucune configuration fournie! Veuillez en renseigner une",
+    "no-change-to-save": "Aucun changement à sauvegarder",
+    "add": "Créer",
+    "delete": "Supprimer",
+    "save": "Sauvegarder",
+    "loading": "Chargement en cours",
+    "no-data": "Aucune donnée",
+    "menu": "Menu",
+    "app-name": "ADM SHOP ADMIN",
+    "cancel": "Annuler",
+    "footer": "Copyright © 2023 Studerd.io Tous droits réservés."
+  },
+  "page": {
+    "account-home": {
+      "part": {
+        "address": {
+          "title": "Addresse",
+          "label": {
+            "road": "Rue",
+            "cp": "Code postal",
+            "nb": "Numéro",
+            "town": "Ville",
+            "country": "Pays",
+            "complement": "Complément"
+          },
+          "placeholder": {
+            "road": "Entrez une rue",
+            "cp": "0000",
+            "nb": "0",
+            "town": "Entrez une ville",
+            "country": "Choisir un Pays",
+            "complement": "Entrez un complément"
+          }
+        }
+      }
+    },
+    "order": {
+      "trackURL": "Url de tracking",
+      "qty": "Quantité",
+      "list": "Liste des commandes",
+      "production": "Liste des éléments à produire",
+      "btn-change-status": "Changer le status",
+      "no-data": "Aucune commande",
+      "title": "Liste des commandes",
+      "title-detail": "Commande {{reference}}",
+      "title-detail-2": "Détail de la commande",
+      "title-detail-3": "Adresse",
+      "da": "Adresse de livraison",
+      "ba": "Adresse de facturation",
+      "vat-price": "Reduction TVA - professionnel étranger",
+      "total-price": "Prix total tvac",
+      "ttc": "Total réduction tva et coût des transports compris",
+      "cost-travel": "Coût de transport",
+      "no-option": "Aucune option",
+      "product": "Produit",
+      "column": {
+        "reference": "Référence",
+        "profile": "Client",
+        "products": "Contenu",
+        "encoded": "Création",
+        "start-product": "début de prod",
+        "estimated-products": "fin de prod",
+        "date-start-production": "Début de la production le :{{startProduction}}",
+        "end-start-production": "Fin de la production le :{{estimatedTimeToDeliver}}",
+        "status": "Statut"
+      },
+      "status": {
+        "ALL": "Tous",
+        "WAITING_CLIENT_PAYMENT": "En attente de payement",
+        "WAITING_CLIENT_FINALIZATION": "En attente de finalisation client",
+        "CANCELED_BY_CLIENT": "Annulé",
+        "PAYMENT_RECEIPTED":"Payement reçu",
+        "IN_PRODUCTION": "En production",
+        "IN_DELIVERY": "En livraison",
+        "DELIVRED": "Réceptionné",
+        "CLIENT_PAID": "Payé",
+        "CLIENT_NOT_PAID": "Non payé",
+        "CLOTURED": "clotûré"
+      }
+    },
+    "signup": {
+      "link": {
+        "accroche": "Vous n'avez pas de compte?",
+        "clickable": "Cliquez ici pour vous en créer un"
+      },
+      "validation": {
+        "title-error": "Impossible de s'inscrire'!",
+        "desc-error": "Tous les doivent être remplis",
+        "uuid": "Le code fourni n'est pas au bon format"
+      },
+      "title": "Inscription à ",
+      "label": {
+        "username": "Identifiant",
+        "password": "Mot de passe",
+        "code": "Code d'authorisation"
+      }
+    },
+    "signin": {
+      "link": {
+        "accroche": "Vous possédez un compte?",
+        "clickable": "Cliquez ici pour vous connecter"
+      },
+      "validation": {
+        "title-error": "Impossible de se connecter!",
+        "desc-error": "Le champs identifiants et mot de passe doivent être remplis"
+      },
+      "title": "Connexion à ",
+      "label": {
+        "username": "Identifiant",
+        "password": "Mot de passe"
+      }
+    },
+    "product-home": {
+      "no-data": "Aucun produit",
+      "search-placeholder": "Filtrer les produits",
+      "title": "Produit",
+      "title-information": "Module produit",
+      "title-desc": "Vous avez actuellement {{count}} produit(s),\n Cliquez sur le bouton ci-dessous pour en créer un nouveau produit.\n Cliquez sur un élément de la colonne de gauche pour le visualiser",
+      "create": "Créer un nouveau produit"
+    },
+    "product-detail": {
+      "title": {
+        "main": "{{title}}",
+        "create": "Nouveau produit",
+        "choose-picture": "Choisir une image",
+        "choose": "Cliquez ici pour selectionner une image"
+      },
+      "btn": {
+        "create": "Créer un produit",
+        "update": "Modifier un produit"
+      },
+      "label": {
+        "draft": "Mode brouillon",
+        "visible": "Article visible",
+        "small": "Petit produit",
+        "position": "Position"
+      },
+      "placeholder": {
+        "delays": "Délais",
+        "title": "Titre du produit",
+        "addPoint": "Ajoutez un point fort",
+        "options-type": "Ajouter une option",
+        "options-desc": "Ajouter une valeur",
+        "options-price": "Prix",
+        "price": "Prix",
+        "total-price": "Prix total",
+        "description": "Description",
+        "caract": "Caractéristiques",
+        "complement": "Informations complémentaires",
+        "cost-travel": "Coût de la livraison"
+      }
+    },
+    "profile-home": {
+      "no-data": "Aucun profile",
+      "search-placeholder": "Filtrer les profiles",
+      "title": "Client",
+      "title-information": "Module client",
+      "title-desc": "Vous avez actuellement {{count}} client(s),\n Cliquez sur le bouton ci-dessous pour en créer un nouveau client.\n Cliquez sur un élément de la colonne de gauche pour le visualiser",
+      "create": "Créer un nouveau client"
+    },
+    "profile-detail": {
+      "title": {
+        "order": "Commandes",
+        "main": "Détail de {{str}}",
+        "create": "Nouveau profile",
+        "identity": "Identité",
+        "health-data": "Donnée santé"
+      },
+      "label": {
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "gender": "Genre",
+        "phone": "Téléphone",
+        "email": "Email"
+      },
+      "placeholder": {
+        "firstname": "Entrez un prénom",
+        "lastname": "Entrez un nom",
+        "gender": "Choisissez un genre",
+        "phone": "Entrez un numéro de téléphone",
+        "email": "Entrez une adresse mail"
+      }
+    },
+    "address-detail": {
+      "title": "Addresse",
+      "label": {
+        "road": "Rue",
+        "cp": "Code postal",
+        "nb": "Numéro",
+        "town": "Ville",
+        "country": "Pays",
+        "complement": "Complément"
+      },
+      "placeholder": {
+        "road": "Entrez une rue",
+        "cp": "0000",
+        "nb": "0",
+        "town": "Entrez une ville",
+        "country": "Choisir un Pays",
+        "complement": "Entrez un complément"
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<div class="content">
+  <p class="feedback" *ngIf="address.feedback.length >0">
+    {{address.feedback | translate}}
+  </p>
+  <div class="line">
+    <div class="f1">
+      <div class="title">{{'page.account-home.part.address.titles.search' | translate}}</div>
+      <div class="form formy">
+        <div class="label">{{'page.account-home.part.address.label.search' | translate}}</div>
+        <input placeholder="Entrez votre adresse ici"
+               ngx-google-places-autocomplete [options]="options"
+               (onAddressChange)="handleAddressChange($event)"/>
+      </div>
+      <div class="formy">
+        <app-input-detail [config]="address.title"></app-input-detail>
+      </div>
+      <div class="formy">
+        <app-input-detail [config]="address.complement"></app-input-detail>
+      </div>
+      <ng-container *ngIf="showResult">
+        <div class="mg-top title">{{'page.account-home.part.address.titles.result' | translate}}</div>
+        <div class="form">
+          <div class="label">{{'page.account-home.part.address.label.country' | translate}}</div>
+          <div class="value">{{address.country.formControl.value}}</div>
+        </div>
+        <div class="form">
+          <div class="label">{{'page.account-home.part.address.label.town' | translate}}</div>
+          <div class="value">{{address.cp.formControl.value}} {{address.town.formControl.value}}</div>
+        </div>
+        <div class="form">
+          <div class="label">{{'page.account-home.part.address.label.road' | translate}}</div>
+          <div class="value">{{address.road.formControl.value}} {{address.nb.formControl.value}}</div>
+        </div>
+      </ng-container>
+      <div class="btn-area">
+        <button class="delete"
+                (click)="remove()">{{'page.account-home.part.address.btn.delete' | translate}}</button>
+      </div>
+    </div>
+    <div class="f12">
+      <google-map [height]="'100%'" [center]="center" [zoom]="zoom">
+        <map-marker
+          *ngFor="let marker of markers"
+          [position]="marker.position"
+          [label]="marker.label"
+          [title]="marker.title"
+          [options]="marker.options"
+        >
+        </map-marker>
+      </google-map>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="tab">
+    <div class="header">
+        <div class="item" *ngFor="let item of config.tabs;let index=index" (click)="setActive(index)">{{item}}</div>
+    </div>
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+</div>

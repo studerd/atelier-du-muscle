@@ -1,0 +1,248 @@
+{
+  "api": {
+    "change-password": {
+      "success": "Le mot de passe a bien été changé"
+    },
+    "signin": {
+      "error": "Compte non trouvé"
+    }
+  },
+  "menu": {
+    "work": "Notre travail",
+    "contact": "Contact",
+    "shop": "Boutique",
+    "account": "Mon compte",
+    "bucket": "Mon panier",
+    "order": "Commande"
+  },
+  "common": {
+    "under-construction": "En cours de construction",
+    "footer": "Copyright © 2023 atelierdumuscle.be BE 0786.726.121 Tous droits réservés."
+  },
+  "page": {
+    "home": {
+      "slider": {
+        "text": {
+          "first": {
+            "hello": "L'atelier du muscle !",
+            "second": "La combinaison d’un coach passionné",
+            "important": "et d’un ingénieur-soudeur"
+          },
+          "second": {
+            "hello": "Entièrement",
+            "second": "Conçu et fabriqué",
+            "important": "en Belgique"
+          },
+          "third": {
+            "hello": "Produits uniques",
+            "second": "Efficaces, robustes et",
+            "important": "utilisables partout"
+          }
+        }
+      }
+    },
+    "order": {
+      "btn": {
+        "finalize": "Finaliser",
+        "cancel": "Annuler"
+      },
+      "bank-title": "Coordonnées de la banque(uniquement en cas de demande de votre banque)",
+      "bank-desc": "BPOSTBANK-BPOSTBANQUE<br /> RUE DU MARQUIS - MARKIESSTRAA, 1 / 2<br/> 1000 BRUSSELS<br />Belgique",
+      "info": "Vous recevrez un email lorsque nous aurons réceptionné le paiement.",
+      "virement-title": "Virement bancaire",
+      "virement": "Si vous décidez de payer par virement voici les coordonées:<br />Atelier du muscle<br />IBAN: BE38.0004.7153.3972<br />BIC: BPOTBEB1",
+      "paypal-title": "Paiement avec Paypal",
+      "paypal": "Si vous décidez de payer avec paypal, vous devrez faire un versement sur l'adresse email suivante :<br /><span class='important'>metaldesbois@gmail.com</span> <br />La somme sera majorée de 4% ce qui fait un total de {{count}} €",
+      "payment": "Modalité de paiement",
+      "payment-description": "Le montant total, coût de transport et TVA compris , s'élève à {{count}} €",
+      "no-taxe": "Votre numéro de tva étranger vous permet de payer sans taxe, la somme totale s'élève donc à {{count}} €",
+      "status": "Status",
+      "articles": "Liste des articles",
+      "loading": "Chargement des détails en cours",
+      "no-data": "Le numéro de commande n'est pas valide",
+      "follow": "Suivre mon paquet",
+      "mandatory-data": "Données obligatoires",
+      "billing-address": "Adresse de facturation",
+      "delivery-address": "Adresse de livraison",
+      "no-addresses": "Vous devez renseigner au minimum une adresse pour finaliser la commande",
+      "navigate-to-address": "Remplir une adresse"
+    },
+    "signup": {
+      "loading": "Votre compte est en cours de création, veuillez patienter",
+      "link": {
+        "accroche": "Vous n'avez pas de compte?",
+        "clickable": "Cliquez ici pour vous en créer un"
+      },
+      "validation": {
+        "title-error": "Impossible de s'inscrire'!",
+        "desc-error": "Tous les doivent être remplis",
+        "uuid": "Le code fourni n'est pas au bon format"
+      },
+      "title": "Inscription à ",
+      "sub-title": "la boutique",
+      "label": {
+        "username": "Identifiant / e-mail",
+        "password": "Mot de passe",
+        "code": "Code d'authorisation"
+      }
+    },
+    "signin": {
+      "link": {
+        "accroche": "Vous possédez un compte?",
+        "clickable": "Cliquez ici pour vous connecter"
+      },
+      "validation": {
+        "title-error": "Impossible de se connecter!",
+        "desc-error": "Le champs identifiants et mot de passe doivent être remplis"
+      },
+      "title": "Connexion à ",
+      "sub-title": "votre espace",
+      "label": {
+        "username": "Identifiant / e-mail",
+        "password": "Mot de passe"
+      }
+    },
+    "bucket": {
+      "paid": "Procéder au paiement",
+      "explain": "Les * désignent les champs obligatoires. N'oubliez pas de selectionner/créer une adresse. Afin de valider les changements vous devez cliquer sur le bouton\"Enregistrer mes donnée\" ",
+      "data-not-filled": "Vous devez renseigner tous les champs ci-dessous avant de pouvoir procéder au paiement.",
+      "data-to-have": "Données de facturation",
+      "item-add": "Article ajouté au panier",
+      "no-option": "Aucune option choisie",
+      "empty": "Votre panier est vide! Rendez-vous dans la boutique",
+      "total-article": "Sous-total:",
+      "go-shop": "Accéder à la boutique",
+      "total-price": "Sous-total tvac",
+      "over": " (hors transport)",
+      "cost-travel": "Coût de transport",
+      "reduction-tva": "Réduction tva étrangère",
+      "totaly-price": "Prix tout compris TVAC",
+      "no-connected": "Connectez-vous pour valider votre panier",
+      "validate": "Passer commande",
+      "success-order": "Nous avons bien reçu votre bon de commande, pour la finaliser / valider, veuillez cliquer sur le bouton",
+      "final-order": "Finaliser ma commande"
+    },
+    "account-home": {
+      "error": {
+        "change-password": "Les mots de passe ne correspondent pas"
+      },
+      "btn": {
+        "save": "Enregistrer",
+        "change": "Changer"
+      },
+      "part": {
+        "order": {
+          "no-data": "Aucune commande n'est liée à votre compte",
+          "title": {
+            "ref": "Référence",
+            "date": "Création",
+            "status": "Statut",
+            "total": "Total tvac"
+          },
+          "status": {
+            "CLIENT_PAID": "Payé / En production",
+            "WAITING_CLIENT_PAYMENT": "En attente de payement",
+            "WAITING_CLIENT_FINALIZATION": "En attente de finalisation client",
+            "CANCELED_BY_CLIENT": "Annulé",
+            "PAYMENT_RECEIPTED": "Payement reçu",
+            "IN_PRODUCTION": "En production",
+            "IN_DELIVERY": "En livraison",
+            "DELIVERED": "DELIVERED"
+          }
+        },
+        "address": {
+          "validation": {
+            "invalid": "L'adresse doit être validée",
+            "is-invalid": "Les éléments suivants ne permettent pas de valider l'adresse",
+            "street_number": "numéro de rue",
+            "route": "rue",
+            "postal_code": "code postal",
+            "sublocality_level_1": "localité",
+            "country": "pays",
+            "locality": "localité"
+          },
+          "titles": {
+            "search": "Recherche et complément",
+            "result": "Addresse validée"
+          },
+          "btn": {
+            "add": "Ajoutez une nouvelle adresse",
+            "save": "Enregistrer",
+            "delete": "supprimer",
+            "validate": "Valider"
+          },
+          "error": "Vos adresses contiennent des erreurs! Vous devez rechercher l'adresse via le formulaire et remplir les titres.",
+          "title": "Addresse",
+          "label": {
+            "search": "Indiquez ici votre recherche pour remplir le résultat",
+            "title": "Titre de l'adresse",
+            "road": "Rue",
+            "cp": "Code postal",
+            "nb": "Numéro",
+            "town": "Ville",
+            "country": "Pays",
+            "complement": "Complément"
+          },
+          "placeholder": {
+            "title": "Insérez un titre à votre adresse",
+            "road": "Entrez une rue",
+            "cp": "0000",
+            "nb": "0",
+            "town": "Entrez une ville",
+            "country": "Choisir un Pays",
+            "complement": "Entrez un complément"
+          }
+        },
+        "parameter": {
+          "logout": "Se deconnecter",
+          "delete-account": "J'ai bien compris ! supprimer mon compte",
+          "explain-title": "Suppression de compte",
+          "explain": "En cliquant sur supprimer mon compte, vous le supprimerez définitivement. Il vous sera donc impossible de le récupérer!"
+        }
+      },
+      "title": {
+        "identity": "Identité",
+        "contact": "Données de contact",
+        "address": "Adresses",
+        "password": "Gestion du mot de passe",
+        "order": "Mes commandes",
+        "parameters": "Paramètres"
+      }
+    },
+    "profile-detail": {
+      "title": {
+        "main": "Détail de {{firstname}} {{lastname}}",
+        "create": "Nouveau profile",
+        "identity": "Identité",
+        "health-data": "Donnée santé"
+      },
+      "label": {
+        "vatNumber": "Numéro de tva",
+        "newOne": "Nouveau mot de passe",
+        "confirmation": "Confirmation",
+        "firstname": "Prénom *",
+        "lastname": "Nom *",
+        "gender": "Genre",
+        "phone": "Téléphone *",
+        "email": "Email *"
+      },
+      "placeholder": {
+        "description": "Description",
+        "caract": "Caractéristiques",
+        "complement": "Informations complémentaires",
+        "vatNumber": "A remplir si vous êtes professionnel",
+        "newOne": "Choisissez un nouveau mot de passe",
+        "confirmation": "Confirmez",
+        "firstname": "Entrez un prénom",
+        "lastname": "Entrez un nom",
+        "gender": "Choisissez un genre",
+        "phone": "Entrez un numéro de téléphone",
+        "email": "Entrez une adresse mail",
+        "total-price": "Prix option(s) comprise(s)",
+        "options": "Liste des options",
+        "buy": "Ajouter",
+        "detail": "Voir les détails"
+      }
+    }
+  }
+}

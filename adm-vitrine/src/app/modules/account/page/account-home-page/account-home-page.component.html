@@ -1,0 +1,20 @@
+<app-card>
+  <div class="tabulator">
+    <div class="item" *ngFor="let item of tabs;let first=first;let last=last"
+         [class.active-first]="first && currentTab === item.title"
+         [class.active-last]="last && currentTab === item.title"
+         [class.active]="!last && !first && currentTab === item.title"
+         (click)="changeTab(item.title)"><i class="{{item.icon}}"></i>
+    </div>
+  </div>
+  <div class="content">
+    <div class="title">{{'page.account-home.title.' + currentTab | translate}}</div>
+    <app-account-identity-part *ngIf="currentTab===tabs[0].title" [formConfig]="detailFormConfig" (onSave)="save()"></app-account-identity-part>
+    <app-account-contact-part *ngIf="currentTab===tabs[1].title" [formConfig]="detailFormConfig" (onSave)="save()"></app-account-contact-part>
+    <app-account-address-part *ngIf="currentTab===tabs[2].title" [formConfig]="detailFormConfig!.address" (onSave)="save()"></app-account-address-part>
+    <app-account-password-part *ngIf="currentTab===tabs[3].title"></app-account-password-part>
+    <app-account-order-part *ngIf="currentTab===tabs[4].title" [profile]="profile"></app-account-order-part>
+    <app-account-parameter-part *ngIf="currentTab===tabs[5].title" (onDeleteAccount)="deleteAccount()"
+                                (onLogout)="logout()"></app-account-parameter-part>
+  </div>
+</app-card>

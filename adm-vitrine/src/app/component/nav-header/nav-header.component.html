@@ -1,0 +1,19 @@
+<div  id="story-header" (window:scroll)="onScroll()" [class.fixed]="fixed" [class.normal]="!fixed">
+  <div id="mouse-anime">
+    <div class="scroll-down-wrap">
+      <div class="mousey">
+        <div class="scroller"></div>
+      </div>
+      <span>Scrollez !</span></div>
+  </div>
+  <div id="menu">
+    <nav id="menu-nav">
+      <ul>
+        <li><span class="scroll-link" [class.act-link]="currentSection==='hagen'" (click)="goTo('hagen')">ADM</span></li>
+        <li><span class="scroll-link" [class.act-link]="currentSection==='whoiam'"(click)="goTo('whoiam')">Qui sommes-nous?</span></li>
+        <li><span class="scroll-link" [class.act-link]="currentSection==='coaching'"(click)="goTo('coaching')">Nos produits</span></li>
+        <li><span class="scroll-link" [class.act-link]="currentSection==='contact'"(click)="goTo('contact')">Contact</span></li>
+      </ul>
+    </nav>
+  </div>
+</div>

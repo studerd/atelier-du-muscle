@@ -1,0 +1,15 @@
+<div class="top-bar" *ngIf="config !== null">
+    <div class="square" *ngIf="config.titleIcon"><i class="fa-regular {{config.titleIcon}}"></i></div>
+    <div class="title">{{config.title.label | translate:config.title.params}}</div>
+    <div class="search">
+        <div class="search-zone" *ngIf="config.search">
+            <input type="text" [placeholder]="config.search.placeholder| translate" [(ngModel)]="config.search.data"
+                   (ngModelChange)="onSearch()"/>
+            <i class="fa-regular fa-search" (click)="onSearchClick()"></i></div>
+    </div>
+    <div class="actions" *ngIf="config.actions.length >0">
+        <span *ngFor="let btn of config.actions" class="btn {{btn.css}}" (click)="btn.callback()" [tooltip]="btn.label" [position]="tooltipPosition.LEFT">
+            <i *ngIf="btn.icon" class="fa-regular {{btn.icon}}"></i>
+        </span>
+    </div>
+</div>

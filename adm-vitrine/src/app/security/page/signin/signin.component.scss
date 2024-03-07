@@ -1,0 +1,139 @@
+
+#wrapper {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  background: var(--theme-white);
+  padding: 1rem;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    .logo {
+      img {
+        width: 120px;
+      }
+    }
+
+    .title {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: var(--theme-dark);
+
+    }
+  }
+}
+
+.form-area {
+  width: 100%;
+  margin-bottom: 20px;
+
+  .top-area {
+    border: 1px solid var(--theme-dark-clear);
+    border-radius: 12px 12px 0 0;
+    position: relative;
+  }
+
+  .middle-area {
+    border: 1px solid var(--theme-dark-clear);
+    border-top: none;
+    position: relative;
+  }
+
+  .bottom-area {
+    border: 1px solid var(--theme-dark-clear);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    position: relative;
+  }
+
+  .area {
+    position: relative;
+    height: 56px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+
+    .icon {
+      min-width: 56px;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--theme-label-text);
+      cursor: pointer;
+
+      i {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+
+      }
+
+      transition: all ease .3s;
+
+      &:hover {
+        background: var(--theme-standard-bg-hover);
+        color: var(--theme-dark);
+      }
+    }
+  }
+}
+
+
+.floating-label {
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 10px;
+  transition: 0.2s ease all;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: var(--theme-label-text);
+}
+
+.fixed-label {
+  font-size: 12px;
+  height: 14px;
+}
+
+.floating-input {
+  flex: 2;
+  padding: 10px;
+  padding-top: 24px;
+  height: 56px;
+  background: transparent !important;
+  color: var(--theme--input-text);
+  border: 1px solid var(--theme-white);
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.clean {
+  color: #6e6e73
+}
+
+input {
+  font-size: 15px;
+}

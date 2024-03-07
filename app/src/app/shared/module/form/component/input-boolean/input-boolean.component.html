@@ -1,0 +1,7 @@
+<div class="wrapper">
+    <label (click)="toggleSwitch()">{{config.translateKey + 'label.' + config.name | translate}}</label>
+   <div class="switch"  (click)="toggleSwitch()" [class.switched]="switched">
+       <div class="bullet"></div>
+   </div>
+
+</div>

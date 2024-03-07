@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  label {
+    font-family: "FigtreeSemiBold";
+    font-size: 14px;
+    flex: 2;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .switch {
+    background: var(--theme-eee);
+    width: 40px;
+    height: 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    padding: 3px;
+
+    .bullet {
+      width: 18px;
+      height: 18px;
+      border-radius: 9px;
+      background: var(--theme-white);
+    }
+  }
+
+  .switched {
+    background: var(--theme-primary);
+    padding-left: 18px;
+  }
+}
+

@@ -1,0 +1,97 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  label {
+    text-transform: uppercase;letter-spacing: 2px;
+    font-size: 12px;
+    color:var(--theme-label-text);
+  }
+
+  input {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;letter-spacing: 1px;
+    font-size: 12px;
+    transition: var(--transition-smooth);
+    color: var(--theme--input-text);
+
+    &::placeholder {
+      color: var(--theme--input-text);
+    }
+
+    &:hover {
+      background: var(--theme-standard-bg-hover)
+    }
+  }
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  input {
+    flex: 2;
+  }
+}
+
+.chooser {
+  position: relative;
+  height: 30px;
+  width: 75px;
+  .selected, .opt {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 3px;
+  }
+
+  .selected {
+    border: 1px solid var(--theme-aaa);
+    height:30px;
+    border-radius: 2px;
+    font-size:12px;
+    letter-spacing: 2px;
+    color:var(--theme-label-text)
+  }
+  .rad{
+    border-radius: 2px 2px 0 0;
+  }
+
+  .opt {
+    border-bottom: 1px solid var(--theme-aaa);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+
+    &:hover {
+      background: var(--theme-standard-footer-bg);
+    }
+  }
+
+  .choose {
+    position: absolute;
+    top: 30px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    left: 0;
+    width: 75px;
+    border-left: 1px solid var(--theme-aaa);
+    border-right: 1px solid var(--theme-aaa);
+    background: var(--theme-white);
+    font-size:12px;
+    letter-spacing: 2px;
+    color:var(--theme-label-text)
+  }
+  .hide{
+    height:0
+  }
+}
+
+.flag {
+  width: 25px;
+}

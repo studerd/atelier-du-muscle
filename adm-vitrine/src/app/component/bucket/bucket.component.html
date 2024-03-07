@@ -1,0 +1,14 @@
+<ng-container *ngIf="orderService.showBucket$ | async as showBucket;else minimal">
+    <div class="bucket-large">
+      <div class="title">
+        {{'menu.bucket' | translate}}
+      </div>
+      <i class="fa-light  fa-times" (click)="clickBucket(false)"></i>
+    </div>
+</ng-container>
+<ng-template #minimal>
+  <div class="bucket" *ngIf="orderService.bucket$ | async as bucket" (click)="clickBucket(true)">
+    <i class="fa-light  fa-cart-shopping"></i>
+    <div class="pastille" *ngIf="count>0">{{count}}</div>
+  </div>
+</ng-template>

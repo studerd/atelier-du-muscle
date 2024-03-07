@@ -1,0 +1,40 @@
+<ng-container *ngIf="config;else noConfig">
+    <table>
+        <tr class="header">
+            <td *ngFor="let field of config.fieldConfig">{{field.translateKey + 'label.' + field.name | translate}}</td>
+            <td *ngIf="config.actions.length >0 || config.inlineAdd">
+            </td>
+        </tr>
+        <tr *ngFor="let item of data">
+            <td *ngFor="let field of config.fieldConfig">{{item[field.name]}}</td>
+            <td *ngIf="config.actions.length >0|| config.inlineAdd">
+
+                 <span *ngFor='let action of config.actions'
+                       class="clickable primary-light-btn" (click)="action.callback(action.dataService,item.id, config!.formConfig!)"><i
+                         class="fa-regular {{action.icon}}"></i></span></td>
+        </tr>
+        <tr *ngIf="config.inlineAdd" [formGroup]="config!.formConfig!.formGroup">
+            <td *ngFor="let field of config.fieldConfig">
+                <ng-container *ngIf="config.formConfig!.fields.indexOf(field.name) > -1;else noNeed">
+                    <input [type]="field.type"
+                           [placeholder]="field.translateKey + 'placeholder.'+field.name | translate"
+                           [formControlName]="field.name"/>
+                </ng-container>
+                <ng-template #noNeed> -</ng-template>
+            <td>
+                <ng-container *ngIf="config!.formConfig!.formGroup!.valid; else noNeed">
+                    <span class="clickable primary-light-btn" (click)="onSave()"><i
+                            class="fa-regular fa-floppy-disk"></i></span>
+                </ng-container>
+                <ng-template #noNeed>
+                        <span class="un-clickable"><i class="fa-regular fa-floppy-disk"
+                                                      [tooltip]="{label:config.fieldConfig[0].translateKey + 'form.invalid'}"
+                                                      [position]="tooltipPosition.LEFT"></i></span>
+                </ng-template>
+            </td>
+        </tr>
+    </table>
+</ng-container>
+<ng-template #noConfig>
+    <p>{{'common.no-data-view-list-config' | translate}}</p>
+</ng-template>

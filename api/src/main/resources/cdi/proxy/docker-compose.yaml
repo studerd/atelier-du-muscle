@@ -1,0 +1,50 @@
+version: '3.7'
+services:
+  reverse-proxy:
+    depends_on: [db,  api]
+    image: nginx
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /etc/ssl:/etc/ssl
+      - /etc/letsencrypt:/etc/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
+    container_name: reverse
+  db:
+    container_name: db
+    hostname: db
+    image: postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    volumes:
+      - /home/data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: admshop
+      POSTGRES_USER: admuser
+      POSTGRES_PASSWORD: P@ssword
+  api:
+    depends_on: [ db ]
+    container_name: api
+    hostname: api
+    image: adm-shop-backend:latest
+    restart: always
+    volumes:
+      - /home/admshop/pictures:/pictures
+    ports:
+      - "2023:2023"
+  admin:
+    image: adm-shop-admin:latest
+    container_name: admin
+    hostname: admin
+  dev:
+    image: adm-dev:latest
+    container_name: dev
+    hostname: dev
+  app:
+    image: adm:latest
+    container_name:   app
+    hostname:   app

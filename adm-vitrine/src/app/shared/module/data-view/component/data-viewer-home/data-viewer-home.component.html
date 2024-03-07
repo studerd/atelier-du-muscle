@@ -1,0 +1,11 @@
+<app-card *ngIf="config">
+    <div class="card-title">
+        {{config.translateKey + 'title-information' | translate}}
+    </div>
+    <div class="content" *ngIf="config.list$ | async as list">
+        {{config.translateKey + 'title-desc' | translate:{count:list.length} }}
+        <div class="btn-area">
+            <span class="clickable btn" (click)="goCreate()">{{config.translateKey + 'create' |translate}}</span>
+        </div>
+    </div>
+</app-card>

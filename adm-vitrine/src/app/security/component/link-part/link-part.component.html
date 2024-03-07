@@ -1,0 +1,4 @@
+<div class="link" *ngFor="let item of links" (click)="onClick(item.link)">
+    <span class="accroche">{{item.accroche | translate}}</span>
+    <span class="clickable">{{item.clickable | translate}}</span>
+</div>

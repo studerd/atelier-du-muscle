@@ -1,0 +1,9 @@
+<div class="content" *ngIf="formConfig">
+  <div class="line">
+  <app-input-detail [config]="formConfig.email"></app-input-detail>
+  <app-input-detail [config]="formConfig.phone"></app-input-detail>
+  <div class="button-area">
+    <button (click)="save()">{{'page.account-home.btn.save' | translate}}</button>
+  </div>
+</div>
+</div>

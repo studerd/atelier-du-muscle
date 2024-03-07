@@ -1,0 +1,17 @@
+.link {
+  font-size: 13px;
+  color: var(--theme-label-text);
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+
+  .clickable {
+    cursor: pointer;
+    color: var(--theme-primary);
+    transition: var(--transition-smooth);
+
+    &:hover {
+      color: var(--theme-primary-middle);
+    }
+  }
+}

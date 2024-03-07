@@ -1,0 +1,14 @@
+[Unit]
+Description=EcoSystemService
+After=docker.service
+BindsTo=docker.service
+ReloadPropagatedFrom=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/admshop/docker/script/restart_system.sh
+ExecReload==/home/admshop/docker/script/restart_system.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

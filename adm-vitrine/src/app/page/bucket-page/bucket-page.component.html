@@ -1,0 +1,149 @@
+
+  <div class="main-wrapper" *ngIf="orderService.bucket$ |async as bucket">
+    <ng-container *ngIf="bucket.lines.length ===0;else listing">
+      <div class="no-fill">
+        <i class="fa-thin fa-cart-shopping"></i>
+        <p>{{'page.bucket.empty'| translate}}</p>
+        <span (click)="goShopping()">{{'page.bucket.go-shop' | translate}}</span>
+      </div>
+    </ng-container>
+    <ng-template #listing>
+      <div class="form">
+        <div class="listing">
+          <div class="title">{{'menu.bucket' | translate}}</div>
+          <div class="list">
+            <div class="line" *ngFor="let line of bucket.lines;let index=index">
+              <div class="description">
+                <div class="product">{{line.product.title}}</div>
+                <ng-container *ngIf="line.options.length >0; else noOption">
+                  <div class="option-line" *ngFor="let opt of line.options">
+                    {{line.str.split('(')[1].replace(')', '')}} {{opt.str}}
+                  </div>
+                </ng-container>
+                <ng-template #noOption>{{'page.bucket.no-option' | translate}}</ng-template>
+                <div class="cost">{{line.qty}} x {{line.totalPrice / line.qty}}€</div>
+              </div>
+              <div class="delete" (click)="delete(index)">
+                <i class="fa-sharp fa-regular fa-trash"></i>
+              </div>
+            </div>
+          </div>
+          <div class="fil"></div>
+          <div class="line cost">
+            <div class="total">{{'page.bucket.total-price' | translate}} </div>
+            <div class="price">{{totalPrice + '€'}}</div>
+          </div>
+          <div class="line cost">
+            <div class="total">{{'page.bucket.cost-travel' | translate}}</div>
+            <div class="price">{{estimatedCost + '€'}}</div>
+          </div>
+          <div class="line cost" *ngIf="reductionTva!=0">
+            <div class="total">{{'page.bucket.reduction-tva' | translate}}</div>
+            <div class="price">-{{reductionTva| number : '1.2-2'}}€</div>
+          </div>
+          <div class="line line-total cost">
+            <div class="total">{{'page.bucket.totaly-price' | translate}}</div>
+            <div class="price">{{fullTotal| number : '1.2-2'}}€</div>
+          </div>
+          <div class="linet">
+            <div class="total">
+              <button *ngIf="isAuthenticated && profile.isValid" (click)="validate()"
+                      class="cursor">{{'page.bucket.paid' | translate}}</button>
+            </div>
+          </div>
+        </div>
+        <!-- getData if not gett -->
+        <ng-container *ngIf="isAuthenticated">
+          <div class="form-data" [class.is-invalid]="!profile.isValid">
+            <div class="invalid" *ngIf="!profile.isValid">
+              {{'page.bucket.data-not-filled' | translate}}
+            </div>
+            <div class="title">{{'page.bucket.data-to-have' | translate}}</div>
+            <div class="formula">
+              <div class="line">
+                <app-input-detail [config]="detailFormConfig.firstname"></app-input-detail>
+                <app-input-detail [config]="detailFormConfig.lastname"></app-input-detail>
+              </div>
+              <div class="line">
+                <app-input-detail [config]="detailFormConfig.email"></app-input-detail>
+              </div>
+              <div class="line">
+                <app-input-detail [config]="detailFormConfig.phone"></app-input-detail>
+              </div>
+              <div class="line nobt">
+                <app-input-detail [config]="detailFormConfig.vatNumber"></app-input-detail>
+                <div class="button-area">
+                  <button (click)="save()">Enregistrer mes données</button>
+                </div>
+              </div>
+            </div>
+            <p class="explain">{{'page.bucket.explain' | translate}}</p>
+            <br>
+            <ng-container *ngIf="profile.address.length >0; else needToAddAddress">
+              <div class="title">Adresses</div>
+              <div class="input-wrapper"><label>Vous pouvez ajouter une nouvelle adresse, celle-ci doit contenir la
+                rue, le numéro, le code postal, la ville et le pays</label>
+                <input placeholder="Ajouter une addresse complete (rue +numéro + code postal + ville + pays"
+                       ngx-google-places-autocomplete [options]="options"
+                       (onAddressChange)="handleAddressChange($event)"/>
+
+              </div>
+              <div class="sub-title">{{'page.order.delivery-address' | translate }}</div>
+              <div class="address">
+                <div class="line" *ngFor="let address of detailFormConfig.address;let index=index"
+
+                     [class.selected]="bucket.delivryAddress.id == address.business.id"
+                     [class.hover]="bucket.delivryAddress.id != address.business.id"
+                >
+                  <div class="data" (click)="setDeliveryAdress(address.business)">
+                    <div class="address-str">{{address.business.str}}</div>
+
+                    <app-input-detail [config]="address.complement" (onBlur)="save()"></app-input-detail>
+                  </div>
+                 <!-- <div class="trash" *ngIf="bucket.delivryAddress.id != address.business.id" (click)="removeAddress(index)">
+                    <i class="fa-light fa-trash-alt"></i>
+                  </div>-->
+                  <div class="check"
+                       *ngIf="bucket.delivryAddress.id == address.business.id">
+                    <i class="fa-sharp fa-solid fa-check"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="sub-title">{{'page.order.billing-address' | translate }}</div>
+
+              <div class="address">
+                <div class="line" *ngFor="let address of detailFormConfig.address;let index=index"
+                     [class.selected]="bucket.billingAddress.id == address.business.id"
+                     [class.hover]="bucket.billingAddress.id != address.business.id"
+                >
+                  <div class="data" (click)="setBillingAdress(address.business)">
+                    <div class="address-str">{{address.business.str}}</div>
+
+                    <app-input-detail [config]="address.complement" (onBlur)="save()"></app-input-detail>
+                  </div>
+                  <!--<div class="trash" *ngIf="bucket.delivryAddress.id != address.business.id"  (click)="removeAddress(index)">
+                    <i class="fa-light fa-trash-alt"></i>
+                  </div> -->
+                  <div class="check"
+                       *ngIf="bucket.billingAddress.id == address.business.id">
+                    <i class="fa-sharp fa-solid fa-check"></i>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-template #needToAddAddress>
+              <div class="title">Veuillez renseigner à minima une adresse</div>
+              <div class="input-wrapper"><label>Vous pouvez ajouter une nouvelle adresse, celle-ci doit contenir la rue,
+                le numéro, le code postal, la ville et le pays</label>
+                <input placeholder="Ajouter une addresse complete (rue +numéro + code postal + ville + pays"
+                       ngx-google-places-autocomplete [options]="options"
+                       (onAddressChange)="handleAddressChange($event)"/>
+
+              </div>
+            </ng-template>
+          </div>
+        </ng-container>
+
+      </div>
+    </ng-template>
+  </div>

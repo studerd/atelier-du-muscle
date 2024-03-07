@@ -1,0 +1,47 @@
+<div class="wrapper" [class.hide-wrapper]="!show">
+    <div class="cropper">
+        <div class="header">
+            <div class="title">{{'page.product-detail.title.choose-picture' | translate}}</div>
+            <div class="btn" (click)="close()"><i class="fa-solid fa-times"></i></div>
+        </div>
+        <div class="content">
+            <input type="file" (change)="fileChangeEvent($event)" #fileUpload style="display:none"/>
+            <div class="cropper-area" *ngIf="pictureChoosed">
+                <image-cropper
+                        [imageChangedEvent]="imageChangedEvent"
+                        [maintainAspectRatio]="true"
+                        ma
+                        [containWithinAspectRatio]="containWithinAspectRatio"
+                        [aspectRatio]="1"
+                        [resizeToWidth]="500"
+                        [cropperMinWidth]="500"
+                        [onlyScaleDown]="true"
+                        [roundCropper]="false"
+                        [canvasRotation]="canvasRotation"
+                        [transform]="transform"
+                        [alignImage]="'left'"
+                        [style.display]="showCropper ? null : 'none'"
+                        format="jpeg"
+                        (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()"
+                        (cropperReady)="cropperReady($event)"
+                        (loadImageFailed)="loadImageFailed()"
+                ></image-cropper>
+            </div>
+            <div class="action" *ngIf="pictureChoosed">
+                <span class="fas fa-rotate-left" (click)="rotateLeft()"></span>
+                <span class="fas fa-rotate-right" (click)="rotateRight()"></span>
+                <span class="fas fa-magnifying-glass-plus" (click)="zoomOut()"></span>
+                <span  class="fas fa-magnifying-glass-minus"  (click)="zoomIn()"></span>
+                <span class="fas fa-image"  (click)="fileUpload.click()"></span>
+                <span class="fas fa-floppy-disk" (click)="save()"></span>
+            </div>
+            <div class="action-btn" *ngIf="!pictureChoosed">
+                <div class="chooser" (click)="fileUpload.click()">
+                    {{ 'page.product-detail.title.choose' | translate}}
+                    <span class="fas fa-image"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

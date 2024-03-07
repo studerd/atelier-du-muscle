@@ -1,0 +1,45 @@
+<div class=""></div>
+
+<div class="main-wrapper" *ngIf="orderService.bucket$ |async as bucket">
+  <ng-container *ngIf="bucket.lines.length ===0;else listing">
+    <div class="no-fill">
+      <i class="fa-thin fa-cart-shopping"></i>
+      <p>{{'page.bucket.empty'| translate}}</p>
+      <button (click)="goShopping()">{{'page.bucket.go-shop' | translate}}</button>
+    </div>
+  </ng-container>
+  <ng-template #listing>
+    <div class="area">
+      <div class="list">
+        <div class="line" *ngFor="let line of bucket.lines;let index=index">
+          <div class="description">
+            <div class="picture"><img [src]="line.product.pictures[0].content" alt=""></div>
+            <div class="product">
+              <div class="title">{{line.product.title}}</div>
+              <div class="option">
+                <ng-container *ngIf="line.options.length >0; else noOption">
+                  <div class="option-line" *ngFor="let opt of line.options">
+                    {{line.str.split('(')[1].replace(')', '')}} {{opt.str}}
+                  </div>
+                </ng-container>
+                <ng-template #noOption>{{'page.bucket.no-option' | translate}}</ng-template>
+              </div> <!-- end option -->
+              <div class="price">
+                {{line.qty}} x {{line.totalPrice / line.qty}}€
+              </div>
+            </div> <!-- end product -->
+            <div class="icon" (click)="removeItem(index)"><i class="fa-regular fa-times"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="end">
+        <div><span class="title">{{'page.bucket.total-article' | translate}}</span> <span>{{ totalPrice }}€</span></div>
+        <div class="btn">
+          <button *ngIf="!(authService.isAuthenticated$ | async)" (click)="signin()" class="cursor">{{'page.bucket.no-connected' | translate}}</button>
+          <button (click)="validate()" *ngIf="authService.isAuthenticated$ | async">{{'page.bucket.validate' | translate}}</button>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+</div>

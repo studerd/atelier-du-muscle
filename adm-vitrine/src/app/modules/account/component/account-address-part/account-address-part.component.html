@@ -1,0 +1,12 @@
+<ng-container *ngIf="valid$ | async as isValid">
+  <div *ngIf="isValid === 'Y'" class="btn-area">
+    <button (click)="add()">{{'page.account-home.part.address.btn.add' | translate}}</button>
+    <button (click)="save()">{{'page.account-home.part.address.btn.save' | translate}}</button>
+  </div>
+
+  <p class="invalid" *ngIf="isValid === 'N'"> {{'page.account-home.part.address.error' | translate}}</p>
+</ng-container>
+<div class="content" *ngFor="let form of formConfig;let last=last;let index=index" [class.nbtom]="!last"
+     [class.invalid-content]="form.formGroup.invalid">
+  <app-address-item [address]="form" (setError)="error = $event" (sendRemove)="remove($event)"></app-address-item>
+</div>

@@ -1,0 +1,31 @@
+export enum ApiUri {
+  SIGNIN = 'auth/signin',
+  DELETE = 'auth/delete',
+  CHANGE_PASSWORD = 'auth/change-password',
+  SIGNUP = 'auth/signup',
+  ME = 'auth/me',
+  REFRESH_TOKEN = 'auth/refresh',
+
+  PROFILE_LIST = 'profile/list',
+  PROFILE_DETAIL = 'profile/detail/',
+  PROFILE_CREATE = 'profile/create',
+  PROFILE_UPDATE = 'profile/update',
+  PROFILE_DELETE = 'profile/delete/',
+
+  PRODUCT_LIST = 'product/public/list',
+  PRODUCT_DETAIL = 'product/public/detail/',
+  PRODUCT_CREATE = 'product/create',
+  PRODUCT_UPDATE = 'product/update',
+  PRODUCT_DELETE = 'product/delete/',
+
+  ORDER_LIST = 'order/list/',
+  ORDER_DETAIL = 'order/detail/',
+  ORDER_CREATE = 'order/create',
+  ORDER_PAID = 'order/paid',
+  ORDER_WEBHOOK = 'order/webhook/',
+  ORDER_UPDATE = 'order/update',
+  ORDER_FINALIZE = 'order/finalize',
+  ORDER_MAIL = 'message/send',
+  ORDER_DELETE = 'order/delete/',
+  ORDER_CANCEL = 'order/cancel/',
+}

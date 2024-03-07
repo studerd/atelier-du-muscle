@@ -1,0 +1,123 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--var-header-height));
+  position: relative;
+}
+.header {
+  background: var(--theme-white);
+  height: var(--var-header-height);
+  border-bottom: 1px solid var(--theme-standard-bg);
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.title {
+  height: var(--var-header-height);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "FigtreeSemiBold";
+  text-transform: uppercase;
+  color: var(--theme-dark-bg-pan);
+  flex: 2;
+}
+
+.actions {
+  height: var(--var-header-height);
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+
+  .clickable {
+    width: calc(var(--var-header-height) - 20px);
+    height: calc(var(--var-header-height) - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border-radius:50%;
+  }
+}
+
+.content {
+  flex: 2;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+  height: var(--var-header-height);
+  background: var(--theme-white);
+  border-right: 1px solid var(--theme-standard-bg);
+  border-bottom: 1px solid var(--theme-standard-bg);
+}
+
+.side-part {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: var(--var-side-menu--minimal);
+  width: var(--var-side-menu-full-open);
+  background: var(--theme-standard-bg);
+  display: flex;
+  flex-direction: column;
+  .listing{
+    position: absolute;
+    top:var(--var-header-height);
+    left:0;right:0;bottom:0;
+    overflow: auto;
+  }
+}
+
+.main {
+  padding-left: var(--var-side-menu-full-open);
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 10px;
+  transition: var(--transition-smooth);
+  color: var(--theme--input-text);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--theme-white);
+
+  }
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+
+  i {
+    height: var(--var-header-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--theme-label-text);
+  }
+
+  input {
+    height: var(--var-header-height);
+    flex: 2;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+
+    &::placeholder {
+      color: var(--theme-label-text);
+    }
+  }
+}

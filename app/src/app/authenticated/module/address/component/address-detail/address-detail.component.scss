@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .line {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .f1 {
+      flex: 4;
+    }
+
+    .f12 {
+      flex: 2;
+    }
+  }
+}

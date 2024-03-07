@@ -1,0 +1,17 @@
+.card {
+  background: var(--theme-white);
+  border: 1px solid var(--theme-dark-clear);
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.default {
+  margin: 1.5rem auto;
+  max-width:1300px;
+}
+.fill{
+  margin: 1.5rem auto;
+  max-width: 1600px;
+}

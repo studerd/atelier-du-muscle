@@ -1,0 +1,92 @@
+<ng-container *ngIf="loading$ | async; else notLoading">
+  <div class="loading-wrapper">
+    <div class="loading"><i class="fas fa-spinner fa-spin"></i> {{'page.order.loading' | translate}}</div>
+  </div>
+</ng-container>
+<ng-template #notLoading>
+  <ng-container *ngIf="order$ | async as order ">
+    <ng-container *ngIf="order.isEmpty; else showDetail">
+      <div class="loading-wrapper">
+        <div class="loading"><i class="fa-regular fa-robot"></i> {{'page.order.no-data' | translate}}</div>
+      </div>
+    </ng-container>
+    <ng-template #showDetail>
+      <div class="wrapper" *ngIf="order$ |async as order">
+        <div class="title">
+          <div class="content"> Commande <span class="reference">{{order.reference}}</span></div>
+          <div class="status"> {{'page.account-home.part.order.status.' + order.status | translate}} </div>
+        </div>
+        <div class="products">
+          <div class="title-p">Produits commandés</div>
+          <div class="line" *ngFor="let line of order.lines">
+            <div class="picture"><img [src]="line.product.pictures[0].content" alt=""></div>
+            <div class="product">
+              <div class="title">{{line.product.title}}</div>
+              <div class="option">
+                <ng-container *ngIf="line.options.length >0; else noOption">
+                  <div class="option-line" *ngFor="let opt of line.options">
+                    {{opt.title}} {{opt.description}}
+                  </div>
+                </ng-container>
+                <ng-template #noOption>{{'page.bucket.no-option' | translate}}</ng-template>
+              </div> <!-- end option -->
+              <div class="price">
+                {{line.qty}} x {{line.totalPrice / line.qty}}€
+              </div>
+              <div class="see-product">
+                <span>Voir les détails</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- data client -->
+        <div class="client">
+          <div class="title-p">Données de facturations</div>
+          <div class="sub-title">Le client</div>
+          <div class="value">{{order.profile.str}}</div>
+          <div class="sub-title">Contact</div>
+          <div class="value">{{order.profile.phone}} / {{order.profile.email}}</div>
+          <div class="sub-title">Addresse de livraison</div>
+          <div class="value">{{order.delivryAddress.str}}</div>
+          <div class="sub-title">Addresse de facturation</div>
+          <div class="value">{{order.billingAddress.str}}</div>
+        </div>
+
+        <!-- -->
+        <div class="final">
+          <div class="total">
+            <div class="title-p">Prix</div>
+            <div class="line cost">
+              <div class="total">{{'page.bucket.total-price' | translate}} </div>
+              <div class="price">{{order.totalPrice| number : '1.2-2'}}€</div>
+            </div>
+            <div class="line cost">
+              <div class="total">{{'page.bucket.cost-travel' | translate}}</div>
+              <div class="price">{{order.estimatedCost| number : '1.2-2'}}€</div>
+            </div>
+            <div class="line cost" *ngIf="reductionTva!=0">
+              <div class="total">{{'page.bucket.reduction-tva' | translate}}</div>
+              <div class="price">-{{reductionTva| number : '1.2-2'}}€</div>
+            </div>
+            <div class="line line-total cost">
+              <div class="total">{{'page.bucket.totaly-price' | translate}}</div>
+              <div class="price">{{totalPrice| number : '1.2-2'}}€</div>
+            </div>
+          </div>
+          <div class="tracking">
+            <div class="title-p">Suivi</div>
+
+            <p class="explain" *ngIf="order.trackingURL">
+              Cliquez sur le bouton ci-dessous si vous voulez suivre votre commande <br><br>
+              <button (click)="track(order.trackingURL)">Suivre</button>
+            </p>
+            <p class="explain" *ngIf="!order.trackingURL">
+              Vous pourrez suivre l'expédition de votre commande lorsque celle-ci sera en cours de livraison.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </ng-template>
+  </ng-container>
+</ng-template>

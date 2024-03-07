@@ -1,0 +1,116 @@
+<app-data-viewer-loader [loading]="loading$" [detail]="detail$" [formMode]="formMode">
+
+    <div class="top-wrapper">
+        <div class="picture-area">
+            <div class="cover">
+                <app-product-picture-item  (deletePicture)="deletePicture(0)" [image]="pictures[0]"></app-product-picture-item>
+            </div>
+            <div class="little-gallery">
+                <div class="picture">
+                    <app-product-picture-item  (deletePicture)="deletePicture(1)" [image]="pictures[1]"></app-product-picture-item>
+                </div>
+                <div class="picture">
+                    <app-product-picture-item  (deletePicture)="deletePicture(2)" [image]="pictures[2]"></app-product-picture-item>
+                </div>
+                <div class="picture">
+                    <app-product-picture-item (deletePicture)="deletePicture(3)" [image]="pictures[3]"></app-product-picture-item>
+                </div>
+                <div class="picture">
+                    <app-product-picture-item (deletePicture)="deletePicture(4)"  [image]="pictures[4]"></app-product-picture-item>
+                </div>
+            </div>
+        </div>
+        <div class="little-description" *ngIf="detailFormConfig">
+            <div class="switch">
+                <app-input-boolean [config]="detailFormConfig.draft"></app-input-boolean>
+                <app-input-boolean [config]="detailFormConfig.visible"></app-input-boolean>
+                <app-input-boolean [config]="detailFormConfig.small"></app-input-boolean>
+                <div class="position">
+                    <label>{{detailFormConfig.delays.translateKey + 'label.position'  | translate}}</label>
+                    <input type="text" [formControl]="detailFormConfig.position.formControl">
+                </div>
+            </div>
+            <div class="availability">
+                <input class="input" [type]="'text'"
+                       [placeholder]="detailFormConfig.delays.translateKey +'placeholder.'+detailFormConfig.delays.name | translate"
+                       [formControl]="detailFormConfig.delays.formControl"/>
+            </div>
+            <div class="title">
+                <input class="input" [type]="'text'"
+                       [placeholder]="detailFormConfig.title.translateKey +'placeholder.'+detailFormConfig.title.name | translate"
+                       [formControl]="detailFormConfig.title.formControl"/>
+            </div>
+            <div class="descy">
+                <div class="bullets">
+                    <div class="line" *ngFor="let item of bulletPoints;let index=index">
+                        <div class="bullet"><span></span></div>
+                        <div class="desc">{{item}}</div>
+                        <i class="fa-solid fa-minus" (click)="removeStrongPoint(index)"></i>
+                    </div>
+                </div>
+                <div class="formed">
+                    <input type="text" [(ngModel)]="title"
+                           [placeholder]="'page.product-detail.placeholder.addPoint' | translate">
+                    <i class="fa-solid fa-plus" (click)="addStrongPoint()"></i>
+                </div>
+            </div>
+            <div class="options">
+                <div class="option" *ngFor="let option of options;let i=index">
+                    <div class="little-title"><i class="fa-solid fa-times" (click)="removeOption(i)"></i>{{option.title}}</div>
+                    <div class="listing-option">
+                        <div class="option-value" *ngFor="let value of option.options;let index = index">
+                            <i class="fa-solid fa-times" (click)="removeValueInGroup(option,index)"></i>
+                            {{value.description}}
+                        </div>
+                    </div>
+
+                    <div class="formed">
+                        <input type="text" [(ngModel)]="option.newOptionForm.description"
+                               [placeholder]="'page.product-detail.placeholder.options-desc' | translate">
+                        <input type="number" [(ngModel)]="option.newOptionForm.price"
+                               [placeholder]="'page.product-detail.placeholder.options-price' | translate">
+                        <i class="fa-solid fa-plus" (click)="addValue(option)"></i>
+                    </div>
+                </div>
+                <div class="formed">
+                    <input type="text" [(ngModel)]="newOptions.title"
+                           [placeholder]="'page.product-detail.placeholder.options-type' | translate">
+                    <i class="fa-solid fa-plus" (click)="addOptions()"></i>
+                </div>
+            </div>
+            <div class="bucket">
+
+                <div class="price">
+                    <div class="skin">{{'page.product-detail.placeholder.total-price'| translate}}</div>
+                    <input class="input" [type]="'number'" [min]="1"
+                           [placeholder]="detailFormConfig.price.translateKey +'placeholder.'+detailFormConfig.price.name | translate"
+                           [formControl]="detailFormConfig.price.formControl"/>
+                </div>
+
+                <div class="price">
+                    <div class="skin">{{'page.product-detail.placeholder.cost-travel'| translate}}</div>
+                    <input class="input" [type]="'number'" [min]="1"
+                           [placeholder]="detailFormConfig.costTravel.translateKey +'placeholder.'+detailFormConfig.costTravel.name | translate"
+                           [formControl]="detailFormConfig.costTravel.formControl"/>
+                </div>
+            </div>
+            <button (click)="preview()">{{(formMode === formType.UPDATE ? 'page.product-detail.btn.update' : 'page.product-detail.btn.create') | translate}}</button>
+        </div>
+    </div>
+
+    <app-card>
+        <div class="tablor">
+            <div class="item" [class.active]="activeTab ===0"
+                 (click)="activeTab=0">{{'page.product-detail.placeholder.description'| translate}}</div>
+            <div class="item" [class.active2]="activeTab ===1"
+                 (click)="activeTab=1">{{'page.product-detail.placeholder.caract'| translate}}</div>
+            <div class="item" [class.active2]="activeTab ===2"
+                 (click)="activeTab=2">{{'page.product-detail.placeholder.complement'| translate}}</div>
+            <div class="item f-2"></div>
+        </div>
+        <ckeditor *ngIf="activeTab ===0" [data]="tabs[0]" (change)="onChange($event)"></ckeditor>
+        <ckeditor *ngIf="activeTab ===1" [data]="tabs[1]" (change)="onChange($event)"></ckeditor>
+        <ckeditor *ngIf="activeTab ===2" [data]="tabs[2]" (change)="onChange($event)"></ckeditor>
+
+    </app-card>
+</app-data-viewer-loader>

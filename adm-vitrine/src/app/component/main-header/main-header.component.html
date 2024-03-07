@@ -1,0 +1,36 @@
+<header class="dh">
+  <div class="logo">
+    <img src="assets/icon.png" alt="">
+  </div>
+  <nav class="desktop-nav">
+    <ul>
+      <li class="li" (click)="goTo('')"><a class="scroll-link">atelier du muscle</a></li>
+      <li class="li" *ngFor="let item of menu" [class.active]="current === item.name" (click)="goTo(item.link)">
+        <a class="scroll-link">{{'menu.' + item.name | translate}}</a></li>
+    </ul>
+  </nav>
+  <app-bucket></app-bucket>
+  <div class="btn btn-2" [class.btn2-long-way]="orderService.showBucket$ |async" (click)="goTo('account')">
+    <i class="fa-thin  fa-user"></i>
+  </div>
+</header>
+<header class="mh">
+  <!-- <div class="logo">
+     <img src="assets/icon.png" alt="">
+   </div>-->
+  <div class="main-title">Atelier du muscle</div>
+  <app-bucket></app-bucket>
+  <div class="btn" [class.btn2-long-way]="orderService.showBucket$ |async" (click)="toggleMenu()">
+    <i class="fa-sharp fa-light fa-bars-sort fa-flip-horizontal"></i>
+  </div>
+  <nav class="mobile-nav" [class.menu-open]="menuOpen">
+    <div class="outside" (click)="menuOpen=false"></div>
+    <ul>
+      <li class="li" (click)="goTo('')"><a class="scroll-link">atelier du muscle</a></li>
+      <li class="li" *ngFor="let item of menu" [class.active]="current === item.name" (click)="goTo(item.link)">
+        <a class="scroll-link">{{'menu.' + item.name | translate}}</a></li>
+      <li class="li" (click)="goTo('account')">
+        <a class="scroll-link">{{'menu.account' | translate}}</a></li>
+    </ul>
+  </nav>
+</header>

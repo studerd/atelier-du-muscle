@@ -1,0 +1,1 @@
+export * from './module-top-bar/module-top-bar.component';

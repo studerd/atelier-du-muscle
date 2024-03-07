@@ -1,0 +1,112 @@
+.top-bar {
+  height: var(--var-header-height);
+  background: var(--theme-white);
+  color: var(--theme-label-text);
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+
+  .square {
+    width: 25px;
+    height: calc(var(--var-header-height) - 20);
+    color: var(--theme-dark-bg-pan);
+    justify-content: center;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .title {
+    min-width: var(--var-side-menu-full-open);
+    height: calc(var(--var-header-height) - 20);
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    padding: 10px;
+  }
+
+  .search {
+    flex: 3;
+    height: calc(var(--var-header-height) - 20);
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+
+    .search-zone {
+      //background: var(--theme-search-bg);
+      border: 1px solid var(--theme-ccc);
+      border-radius: 20px;
+      height: 40px;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+
+      input {
+        flex: 2;
+        padding-left: 15px;
+      }
+
+      i {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: calc(var(--var-header-height) - 20);
+  justify-content: center;
+  align-items: center;
+
+  .btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+  }
+
+  .primary {
+    color: var(--theme-label-text);
+    border: 1px solid var(--theme-label-text);
+
+    &:hover {
+      border: 1px solid var(--theme-dark-bg-pan);
+      background: var(--theme-dark-bg-pan);
+      color: var(--theme-white);
+    }
+  }
+
+  .secondary {
+    background: var(--theme-white);
+    border: 1px solid var(--theme-dark-bg-pan);
+    color: var(--theme-dark-bg-pan);
+
+    &:hover {
+      background: var(--theme-dark-bg-pan);
+      border: 1px solid var(--theme-dark-bg-pan);
+      color: var(--theme-white);
+    }
+  }
+}

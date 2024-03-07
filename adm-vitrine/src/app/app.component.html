@@ -1,0 +1,15 @@
+<app-toast-container></app-toast-container>
+<header>
+  <app-main-header></app-main-header>
+</header>
+<section id="content">
+  <div class="content" [class.short-way]="orderService.showBucket$ | async">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="bucket" [class.long-way]="orderService.showBucket$ | async">
+    <app-bucket-bag></app-bucket-bag>
+  </div>
+</section>
+<footer>
+  {{'common.footer' | translate}}
+</footer>

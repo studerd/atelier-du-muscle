@@ -1,0 +1,19 @@
+<div class="input-wrapper {{config.css}}">
+  <div class="icon" *ngIf="config.icon">
+    <i class="fa-regular {{config.icon}}"></i>
+  </div>
+  <div class="input">
+    <input type="{{config.type}}" [formControl]="config.formControl" autocomplete="new-password"
+           [placeholder]="config.translateKey + 'placeholder.' + config.name | translate"/>
+    <div class="icon" *ngIf="type === 'password'" (click)="changeType()">
+      <i class="fa-regular fa-eye"></i>
+    </div>
+  </div>
+</div>
+<div class="input-wrapper error" *ngIf="config.formControl.errors && config.formControl.touched">
+  <div class="icon" *ngIf="config.icon"></div>
+  <div class="input">
+    <p
+      *ngFor="let error of errors">{{config.translateKey + 'validation.' + config.name + '.' + error | translate}}</p>
+  </div>
+</div>

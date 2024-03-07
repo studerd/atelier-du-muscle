@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--var-header-height));
+  position: relative;
+}
+
+.header {
+  background: var(--theme-white);
+  height: var(--var-header-height);
+  border-bottom: 1px solid var(--theme-standard-bg);
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.title {
+  height: var(--var-header-height);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "FigtreeSemiBold";
+  text-transform: uppercase;
+  color: var(--theme-dark-bg-pan);
+  flex: 2;
+}
+.actions {
+  height: var(--var-header-height);
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+
+  .clickable {
+    width: calc(var(--var-header-height) - 20px);
+    height: calc(var(--var-header-height) - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border-radius:50%;
+  }
+}
+#content {
+  padding: 1rem;
+}

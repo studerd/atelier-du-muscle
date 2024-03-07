@@ -1,0 +1,49 @@
+<div id="wrapper">
+  <div class="content">
+    <div class="section-subtitle">Restons en contact!</div>
+    <div class="contenu">
+      <div class="left">
+        <div class="li instagram" (click)="navigate('https://www.instagram.com/atelier.du.muscle/')">
+          <i class="fa-brands fa-instagram "></i>
+          <div class="label">Atelier du muscle</div>
+        </div>
+        <div class="li facebook"  (click)="navigate('https://www.facebook.com/profile.php?id=100086653514344')">
+          <i class="fa-brands fa-facebook "></i>
+          <div class="label">Atelier du muscle</div>
+        </div>
+        <div class="li youtube"  (click)="navigate('https://www.youtube.com/@KilianHagen')">
+          <i class="fa-brands fa-youtube "></i>
+          <div class="label">Kilian Hagen</div>
+        </div>
+        <div class="li instagram" (click)="navigate('https://instagram.com/julianesamyn_photographe?igshid=MzRlODBiNWFlZA==')">
+          <i class="fa-brands fa-instagram "></i>
+          <div class="label">Juliane Samyn photographe</div>
+        </div>
+
+      </div>
+      <div class="right">
+        <div class="formula" [formGroup]="formGroup">
+          <div class="input">
+            <i class="fa-solid fa-address-card"></i>
+            <input type="text" placeholder="Entrez votre nom et prénom *" formControlName="name"/>
+          </div>
+          <div class="input">
+            <i class="fa-solid fa-at"></i>
+            <input type="email" placeholder="Entrez votre email *" formControlName="mail" />
+          </div>
+          <div class="input">
+            <i class="fa-solid fa-phone"></i>
+            <input type="phone" placeholder="Entrez votre numéro de téléphone"  formControlName="phone" />
+          </div>
+          <div class="input">
+            <i class="fa-solid fa-message"></i>
+            <textarea placeholder="Votre message ici *" cols="40" rows="3"  formControlName="message"></textarea>
+          </div>
+          <div class="error" *ngIf="error.length >0">{{error}}</div>
+          <div class="message" *ngIf="message.length >0">{{message}}</div>
+          <div class="btn-area"><button (click)="submit()">Envoyer mon message</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

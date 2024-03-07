@@ -1,0 +1,21 @@
+<app-card>
+    <div class="card-title">
+        <i class="fa-solid fa-signs-post"></i>
+        {{'page.address-detail.title' | translate}}
+    </div>
+    <div class="content" *ngIf="formConfig">
+        <div class="line">
+            <app-input-detail class="f1" [config]="formConfig.road"></app-input-detail>
+            <app-input-detail class="f12" [config]="formConfig.nb"></app-input-detail>
+            <app-input-detail class="f12" [config]="formConfig.cp"></app-input-detail>
+        </div>
+        <div class="line">
+            <app-input-detail class="f1" [config]="formConfig.town"></app-input-detail>
+            <app-input-detail class="f12" [config]="formConfig.country"></app-input-detail>
+            <div class="f12"></div>
+        </div>
+        <div class="line">
+            <app-input-detail class="f1" [config]="formConfig.complement"></app-input-detail>
+        </div>
+    </div>
+</app-card>

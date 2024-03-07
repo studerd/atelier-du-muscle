@@ -1,0 +1,26 @@
+table {
+  width: 100%;
+
+  td {
+    padding: 5px;
+
+  }
+}
+
+.header {
+  td {
+    font-family: "FigtreeSemiBold";
+    font-size: 11px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--theme-ccc)
+  }
+}
+
+input {
+  width: 100%;
+  height:30px;
+  &::placeholder {
+    font-size: 11px;
+    color: var(--theme-label-text);
+  }
+}

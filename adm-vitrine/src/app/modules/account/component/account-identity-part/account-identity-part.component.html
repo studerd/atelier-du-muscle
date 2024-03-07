@@ -1,0 +1,13 @@
+<div class="content" *ngIf="formConfig">
+  <div class="line">
+    <app-input-detail [config]="formConfig.firstname"></app-input-detail>
+    <app-input-detail [config]="formConfig.lastname"></app-input-detail>
+    <app-input-detail [config]="formConfig.gender"></app-input-detail>
+  </div>
+  <div class="line">
+    <app-input-detail [config]="formConfig.vatNumber"></app-input-detail>
+    <div class="button-area">
+      <button (click)="save()">{{'page.account-home.btn.save' | translate}}</button>
+    </div>
+  </div>
+</div>

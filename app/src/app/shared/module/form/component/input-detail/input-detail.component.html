@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <label for="input">{{config.translateKey + 'label.' + config.name | translate}}</label>
+    <ng-container *ngIf="config.type !=='gender' && config.type !=='select' ;else select">
+        <input id="input" [type]="config.type"
+               [placeholder]="config.translateKey +'placeholder.'+config.name | translate"
+               [formControl]="config.formControl"/>
+    </ng-container>
+    <ng-template #select>
+        <select name="" id="" [formControl]="config.formControl">
+            <option *ngFor="let option of config.data" value="{{option.id}}">{{option.str}}</option>
+        </select>
+    </ng-template>
+</div>

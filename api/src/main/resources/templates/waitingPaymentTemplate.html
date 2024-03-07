@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <!--[if mso]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+    </xml><![endif]-->
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Tahoma, Verdana, Segoe, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            background-color: #f5f5f7;
+            -webkit-text-size-adjust: none;
+            text-size-adjust: none;
+            color: #5b5e66;
+        }
+
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .logo-part img {
+            display: block;
+            height: auto;
+            border: 0;
+            width: 125px;
+            max-width: 100%;
+            margin: 20px auto;
+        }
+
+        #content {
+            background: #FFFFFF;
+            padding: 20px;
+        }
+
+        p {
+            line-height: 25px;
+        }
+
+        h1 {
+            color: #304556;
+            font-size: 25px;
+            font-weight: normal;
+            letter-spacing: normal;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: #304556;
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: normal;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: inherit !important;
+        }
+
+        .btn {
+            display: block;
+            text-decoration: none;
+            color: #FFFFFF;
+            background: #434343;
+            width: 50%;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            vertical-align: middle;
+            font-size: 12px;
+            margin: auto;
+            border-radius: 2px;
+        }
+
+        .important {
+            display: block;
+            text-transform: uppercase;
+            color: #B5191D;
+            margin-top: 20px;
+            margin-bottom:10px;
+            font-size: 16px;
+        }
+
+        .supp {
+            display: block;
+            color: #304556;
+            margin-top: 20px;
+            margin-bottom:10px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body style="margin: 0;padding: 0;font-size:14px;background-color: #f5f5f7;-webkit-text-size-adjust: none;text-size-adjust: none;color: #5b5e66;
+">
+<table id="wrapper">
+    <tr>
+        <td class="logo-part">
+            <img alt="your-logo" src="https://atelierdumuscle.be/assets/icon.png" title="ADM" width="125px"/>
+        </td>
+    </tr>
+    <tr>
+        <td id="content">
+            <h1>Votre commande est presque finalisée</h1>
+            <h2>Nous vennez de finaliser votre commande!</h2>
+            <p> Vous devez procéder au payement de la commande afin que celle-ci puisse être mise en production<br/>
+                <span class="important">MODALITé de payement</span>
+
+                Le montant total, coût de transport et TVA compris , s'élève à <span th:text="${amount}">${amount}</span>
+
+                <span class="important">VIREMENT BANCAIRE</span>
+                Si vous décidez de payer par virement voici les coordonées: <br/>
+                Métal des Bois <br/>
+                IBAN: BE38.0004.7153.3972 <br/>
+                BIC: BPOTBEB1 <br/>
+
+                <span class="supp">COORDONNÉES DE LA BANQUE(UNIQUEMENT EN CAS DE DEMANDE DE VOTRE BANQUE)
+                BPOSTBANK-BPOSTBANQUE</span>
+                RUE DU MARQUIS - MARKIESSTRAA, 1 / 2 <br/>
+                1000 BRUSSELS <br/>
+                Belgique <br/>
+
+                <span class="important">PAIEMENT AVEC PAYPAL</span>
+                Si vous décidez de payer avec paypal, vous devrez faire un versement sur l'adresse email suivante :
+                <br/>
+                metaldesbois@gmail.com <br/>
+                La somme sera majorée de 4% ce qui fait un total de <span th:text="${paypal}">${paypal}</span> <br/>
+
+                <span class="important">VOUS RECEVREZ UN EMAIL LORSQUE NOUS AURONS RÉCEPTIONNÉ LE PAIEMENT.</span>
+                <br/>
+
+                <br/>
+                <a style="color:#FFFFFF" th:href="${orderLink}" class="btn">Voir ma
+                    commande</a>
+
+                <br/>
+            </p>
+            <p>
+                N'hésitez pas si vous avez la moindre question.
+                <br/>
+                La team Atelier du Muscle
+            </p>
+
+        </td>
+    </tr>
+</table>
+<br/><br/>
+</body>
+</html>

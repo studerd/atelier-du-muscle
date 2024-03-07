@@ -1,0 +1,68 @@
+<div id="hagen" (window:resize)="setHeight()">
+
+  <div id="wrapper">
+    <div class="half-slider-item fl-wrap">
+      <div class="half-hero-wrap">
+        <h1><span id="hello">{{'page.home.slider.text.' + this.indexStr + '.hello' | translate}}</span><br>
+          <span id="second">{{'page.home.slider.text.' + this.indexStr + '.second' | translate}}</span><br>
+          <span id="important">{{'page.home.slider.text.' + this.indexStr + '.important' | translate}}</span>
+        </h1>
+      </div>
+    </div>
+    <div class="slider-mobile" *ngIf="isMobile" [style.height]="top">
+      <div class="slider" [style.height]="threeTop" [style.top]="sliderTop">
+        <div class="first-pict" [style.height]="top"></div>
+        <div class="second-pict" [style.height]="top"></div>
+        <div class="third-pict" [style.height]="top"></div>
+      </div>
+    </div>
+    <div id="container">
+      <div id="left-side">
+        <div id="center">
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-hammer " [class.active]="activeIcon ===1"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-lightbulb" [class.active]="activeIcon ===2"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-brain" [class.active]="activeIcon ===3"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-memo" [class.active]="activeIcon ===4"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-dumbbell " [class.active]="activeIcon ===5"></span>
+          </div>
+          <div class="part-icon"><span class="ffa-sharp fa-regular fa-shop" [class.active]="activeIcon ===6"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-heart" [class.active]="activeIcon ===7"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-pen-ruler" [class.active]="activeIcon ===8"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-person-biking-mountain"
+                                       [class.active]="activeIcon ===9"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-gear" [class.active]="activeIcon ===10"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-coin" [class.active]="activeIcon ===11"></span>
+          </div>
+          <div class="part-icon"><span class="fa-sharp fa-regular fa-weight-hanging"
+                                       [class.active]="activeIcon ===12"></span>
+          </div>
+        </div>
+      </div>
+      <div id="right-side">
+        <div class="window">
+          <div class="slider" [style.height]="threeTop" [style.top]="sliderTop">
+            <div class="first-pict" [style.height]="top"></div>
+            <div class="second-pict" [style.height]="top"></div>
+            <div class="third-pict" [style.height]="top"></div>
+          </div>
+        </div>
+        <div id="slider-nav-counter-wrapper">
+          <span class="flaticon-left icon"></span>
+          <span class="texti">{{this.currentPicture}}/3</span>
+          <span class="flaticon-right icon"></span>
+        </div>
+      </div>
+      <div class="pattern-bg"></div>
+      <div class="hero-line-dec"></div>
+    </div>
+  </div>
+</div>

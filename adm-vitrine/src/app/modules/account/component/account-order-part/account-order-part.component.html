@@ -1,0 +1,25 @@
+<ng-container *ngIf="authService.orderService.list$ | async as list" >
+  <ng-container *ngIf="list.length ===0; else listing">
+    {{'page.account-home.part.order.no-data' | translate}}
+  </ng-container>
+  <ng-template #listing>
+    <div class="table">
+      <div class="row title">
+        <div class="cell reference">{{'page.account-home.part.order.title.ref' | translate}}</div>
+        <div class="cell date" >{{'page.account-home.part.order.title.date' | translate}}</div>
+        <div class="cell status" >{{'page.account-home.part.order.title.status' | translate}}</div>
+        <div class="total">{{'page.account-home.part.order.title.total' | translate}}</div>
+      </div>
+      <div class="row data-row" *ngFor="let item of list;let index=index;let last=last" (click)="showDetail(item.id)">
+        <div class="cell reference">
+          <div class="refery">{{item.reference}}</div>
+          <div class="dateIn">{{item.encoded}}</div>
+          <div class="statusIn">{{'page.account-home.part.order.status.' + item.status | translate}}</div>
+        </div>
+        <div class="cell date">{{item.encoded}}</div>
+        <div class="cell status">{{'page.account-home.part.order.status.' + item.status | translate}}</div>
+        <div class="total">{{(item.totalPrice + item.estimatedCost - item.reduction)| number : '1.2-2'}}</div>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>
