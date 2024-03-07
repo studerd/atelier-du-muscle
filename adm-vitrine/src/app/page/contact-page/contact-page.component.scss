@@ -94,8 +94,9 @@ h1 {
     border: 1px solid var(--theme-primary);
     padding: 10px;
     height: 40px;
+
     &::placeholder {
-     color: var(--theme-white);
+      color: var(--theme-white);
     }
   }
 
@@ -113,16 +114,21 @@ h1 {
     color: var(--theme-primary);
   }
 }
-.error{
-  text-transform: uppercase;letter-spacing: 2;
-  color:var(--theme-primary);
-  padding-left:50px;
+
+.error {
+  text-transform: uppercase;
+  letter-spacing: 2;
+  color: var(--theme-primary);
+  padding-left: 50px;
 }
-.message{
-  text-transform: uppercase;letter-spacing: 2;
-  color:var(--theme-white);
-  padding-left:50px;
+
+.message {
+  text-transform: uppercase;
+  letter-spacing: 2;
+  color: var(--theme-white);
+  padding-left: 50px;
 }
+
 .btn-area {
   display: flex;
   flex-direction: column;
@@ -133,14 +139,15 @@ h1 {
   button {
     padding: 10px 20px;
     background: var(--theme-white);
-    color:var(--theme-dark);
+    color: var(--theme-dark);
     text-transform: uppercase;
     letter-spacing: 2px;
-    cursor:pointer;
-    transition:var(--transition-smooth);
-    &:hover{
+    cursor: pointer;
+    transition: var(--transition-smooth);
+
+    &:hover {
       background: var(--theme-primary);
-      color:var(--theme-white)
+      color: var(--theme-white)
     }
   }
 }
@@ -151,15 +158,31 @@ h1 {
     padding: 10px;
     padding-top: 30px;
   }
-  .message{
-    text-transform: uppercase;letter-spacing: 2;
-    color:var(--theme-dark);
-    padding-left:50px;
+  .message {
+    text-transform: uppercase;
+    letter-spacing: 2;
+    color: var(--theme-dark);
+    padding-left: 50px;
   }
   .my-form {
     background: var(--theme-standard-footer-bg);
   }
   .left {
     display: none;
+  }
+}
+
+.text {
+  padding-top: 1.5rem;
+  padding-right: 1.5rem;
+  letter-spacing: 1.3px;
+  font-size: 13px;
+  text-transform: uppercase;
+
+  .imp {
+    display: block;
+    font-size: 14px;
+    padding-top:10px;
+    color: var(--theme-white);
   }
 }

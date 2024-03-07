@@ -44,4 +44,8 @@ export class ContactPageComponent implements OnInit {
       this.error = "Vous devez remplir les champs contenant un *"
     }
   }
+
+  mailme() {
+    window.location.href ='mailto:atelierdumuscle@gmail.com?subject=Prise de contact&body=Indiquez votre message ici';
+  }
 }

@@ -7,7 +7,12 @@
   <div class="right">
     <div class="my-form">
       <h1><span class="important">Nous</span> contacter</h1>
-      <div class="formula" [formGroup]="formGroup">
+      <div class="text">
+        Afin de nous contacter, nous vous demandons de nous envoyer un email à l'adresse suivante:
+        <span class="imp">atelierdumuscle@gmail.com</span>
+
+      </div>
+     <!-- <div class="formula" [formGroup]="formGroup">
         <div class="input">
           <i class="fa-solid fa-address-card"></i>
           <input type="text" placeholder="Entrez votre nom et prénom *" formControlName="name"/>
@@ -27,7 +32,7 @@
         <div class="error" *ngIf="error.length >0">{{error}}</div>
         <div class="message" *ngIf="message.length >0">{{message}}</div>
         <div class="btn-area"><button (click)="submit()">Envoyer mon message</button></div>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>
