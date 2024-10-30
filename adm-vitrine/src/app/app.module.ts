@@ -26,7 +26,7 @@ import {InterludeComponent} from './component/interlude/interlude.component';
 import {ProductComponent} from './component/product/product.component';
 import {BigBangComponent} from './component/big-bang/big-bang.component';
 import {NavHeaderComponent} from './component/nav-header/nav-header.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import { InfoHomePartComponent } from './component/info-home-part/info-home-part.component';
 import { BucketBagComponent } from './component/bucket-bag/bucket-bag.component';
@@ -73,7 +73,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         }),
         ProductModule,
         ReactiveFormsModule,
-        FormModule
+        FormModule,
+        FormsModule
     ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

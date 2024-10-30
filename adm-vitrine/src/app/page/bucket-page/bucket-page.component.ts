@@ -16,7 +16,7 @@ import {
   VatCheck
 } from '@account/model';
 import {addressHelper, profileHelper} from '@account/helper';
-import {isEmpty, isNil} from 'lodash';
+import {add, isEmpty, isNil} from 'lodash';
 import {switchMap} from 'rxjs';
 import {ProfileService} from '@account/service/profile.service';
 import {Credential} from '@security/model';
@@ -28,6 +28,7 @@ import {Credential} from '@security/model';
 })
 export class BucketPageComponent {
   totalPrice = 0;
+  address = '';
   bucket: Order = OrderHelper.getEmpty();
   isAuthenticated = false;
   success = false;
@@ -62,11 +63,11 @@ export class BucketPageComponent {
       this.orderService.showBucket$.next(false);
       const profile = this.authService.account$.getValue().profile;
       if (profile.address.length > 0) {
-        if(isNil(this.bucket.billingAddress)){
+        if (isNil(this.bucket.billingAddress)) {
           this.bucket.billingAddress = profile.address[0];
           this.orderService.updateBucket(this.bucket);
         }
-        if(isNil(this.bucket.delivryAddress)){
+        if (isNil(this.bucket.delivryAddress)) {
           this.bucket.delivryAddress = profile.address[0];
           this.orderService.updateBucket(this.bucket);
         }
@@ -150,6 +151,15 @@ export class BucketPageComponent {
     }
   }
 
+  handleAddressChangeManual() {
+    console.log('address', this.address);
+    const newItem: AddressFormConfig = addressHelper.fromManual(this.address);
+    console.log('newItem', newItem);
+    newItem.road.formControl.patchValue(this.address);
+    this.detailFormConfig.address.push(newItem);
+    this.save();
+  }
+
   setDeliveryAdress(address: Address): void {
     this.bucket.delivryAddress = address;
 
@@ -162,7 +172,7 @@ export class BucketPageComponent {
   save(): void {
     const payload: ProfileUpdatePayload = profileHelper.formConfigToUpdatePayload(this.profile, this.detailFormConfig!);
     console.log('payload', payload);
-   if (!isNil(payload.vatNumber) && payload.vatNumber != this.profile.vatNumber) {
+    if (!isNil(payload.vatNumber) && payload.vatNumber != this.profile.vatNumber) {
       this.profileService.checkVat(payload.vatNumber)
         .pipe(
           switchMap((data: VatCheck) => {
@@ -178,7 +188,7 @@ export class BucketPageComponent {
   }
 
   removeAddress(index: number) {
-    this.detailFormConfig.address.splice(index,1);
+    this.detailFormConfig.address.splice(index, 1);
     this.save();
   }
 }

@@ -66,7 +66,23 @@ export class AddressHelper implements Helper<Address, AddressDto, AddressFormCon
       latitude: business.latitude
     }
   }
-
+fromManual(address:string):AddressFormConfig {
+    const addressFormatted: Address = {
+      complement: '',
+      country: '',
+      cp: '',
+      id: '',
+      isEmpty: false,
+      latitude: '',
+      longitude: '',
+      nb: '',
+      road: address,
+      str: '',
+      title: '',
+      town: ''
+    }
+    return this.toDetailConfig(addressFormatted);
+}
   toDetailConfig(business: Address): AddressFormConfig {
     const formGroup = new FormGroup({
       title: new FormControl(business.title, [Validators.required]),

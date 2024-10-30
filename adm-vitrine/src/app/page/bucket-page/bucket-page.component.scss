@@ -1,4 +1,53 @@
+.button-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  font-size: 18px;
 
+  span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .un-clickable {
+    color: var(--theme-aaa);
+  }
+  button {
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 11px;
+
+    background: var(--theme-dark);
+    border: 1px solid var(--theme-dark);
+    color: var(--theme-standard-footer-bg);
+
+    &:hover {
+      border: 1px solid var(--theme-label-text);
+      background: var(--theme-white);
+      color: var(--theme-label-text);
+    }
+  }
+}
+.line-add{
+  display: flex;
+  flex-direction: row;gap:10px;
+  input{
+    flex:1;
+  }
+}
 .no-fill {
   width: 100%;
   max-width: 1024px;
@@ -153,27 +202,6 @@
   .smaller {
     font-size: 10px;
   }
-
-  button {
-    cursor: pointer;
-    transition: var(--transition-smooth);
-    padding: 10px;
-    text-transform: uppercase;
-    font-weight: 500;
-    width: 100%;
-    text-align: center;
-    letter-spacing: 2px;
-    font-size: 11px;
-    background: var(--theme-primary);
-    color: var(--theme-white);
-    border: 1px solid var(--theme-primary);
-
-    &:hover {
-      background: var(--theme-dark);
-      border: 1px solid var(--theme-dark);
-      color: var(--theme-standard-footer-bg);
-    }
-  }
 }
 
 
@@ -209,28 +237,7 @@
       flex: 1;
     }
 
-    .button-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      font-size: 18px;
 
-      span {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .un-clickable {
-        color: var(--theme-aaa);
-      }
-    }
 
     button {
       cursor: pointer;
